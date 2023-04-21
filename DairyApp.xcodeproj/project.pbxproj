@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1B29F2FA36004ED046 /* AppDelegate.swift */; };
+		1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */; };
+		1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */; };
+		1888DF2829F2FA3A004ED046 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1888DF2729F2FA3A004ED046 /* Assets.xcassets */; };
+		1888DF2B29F2FA3A004ED046 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */; };
+		1888DF3629F2FA3A004ED046 /* DairyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF3529F2FA3A004ED046 /* DairyAppTests.swift */; };
+		1888DF4029F2FA3A004ED046 /* DairyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF3F29F2FA3A004ED046 /* DairyAppUITests.swift */; };
+		1888DF4229F2FA3A004ED046 /* DairyAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF4129F2FA3A004ED046 /* DairyAppUITestsLaunchTests.swift */; };
+		1888DF5129F2FAFF004ED046 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5029F2FAFF004ED046 /* MainTabBarController.swift */; };
+		1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5429F2FB55004ED046 /* DairyViewController.swift */; };
+		1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */; };
+		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
+		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1888DF3229F2FA3A004ED046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1888DF1029F2FA36004ED046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1888DF1729F2FA36004ED046;
+			remoteInfo = DairyApp;
+		};
+		1888DF3C29F2FA3A004ED046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1888DF1029F2FA36004ED046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1888DF1729F2FA36004ED046;
+			remoteInfo = DairyApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1888DF1829F2FA36004ED046 /* DairyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1888DF1B29F2FA36004ED046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1888DF2529F2FA36004ED046 /* DairyApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DairyApp.xcdatamodel; sourceTree = "<group>"; };
+		1888DF2729F2FA3A004ED046 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1888DF2A29F2FA3A004ED046 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1888DF2C29F2FA3A004ED046 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1888DF3129F2FA3A004ED046 /* DairyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DairyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1888DF3529F2FA3A004ED046 /* DairyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyAppTests.swift; sourceTree = "<group>"; };
+		1888DF3B29F2FA3A004ED046 /* DairyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DairyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1888DF3F29F2FA3A004ED046 /* DairyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyAppUITests.swift; sourceTree = "<group>"; };
+		1888DF4129F2FA3A004ED046 /* DairyAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1888DF5029F2FAFF004ED046 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		1888DF5429F2FB55004ED046 /* DairyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyViewController.swift; sourceTree = "<group>"; };
+		1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
+		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
+		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1888DF1529F2FA36004ED046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF2E29F2FA3A004ED046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF3829F2FA3A004ED046 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1888DF0F29F2FA36004ED046 = {
+			isa = PBXGroup;
+			children = (
+				1888DF1A29F2FA36004ED046 /* DairyApp */,
+				1888DF3429F2FA3A004ED046 /* DairyAppTests */,
+				1888DF3E29F2FA3A004ED046 /* DairyAppUITests */,
+				1888DF1929F2FA36004ED046 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1888DF1929F2FA36004ED046 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF1829F2FA36004ED046 /* DairyApp.app */,
+				1888DF3129F2FA3A004ED046 /* DairyAppTests.xctest */,
+				1888DF3B29F2FA3A004ED046 /* DairyAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1888DF1A29F2FA36004ED046 /* DairyApp */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF4E29F2FACA004ED046 /* Resources */,
+				1888DF4F29F2FADD004ED046 /* MainTabBar */,
+				1888DF5229F2FB28004ED046 /* DairyModule */,
+				1888DF5629F2FB80004ED046 /* NewNoteModule */,
+				1888DF5A29F2FBCC004ED046 /* StatisticModule */,
+				1888DF5E29F2FC59004ED046 /* SettingsModule */,
+				1888DF2C29F2FA3A004ED046 /* Info.plist */,
+				1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */,
+			);
+			path = DairyApp;
+			sourceTree = "<group>";
+		};
+		1888DF3429F2FA3A004ED046 /* DairyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF3529F2FA3A004ED046 /* DairyAppTests.swift */,
+			);
+			path = DairyAppTests;
+			sourceTree = "<group>";
+		};
+		1888DF3E29F2FA3A004ED046 /* DairyAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF3F29F2FA3A004ED046 /* DairyAppUITests.swift */,
+				1888DF4129F2FA3A004ED046 /* DairyAppUITestsLaunchTests.swift */,
+			);
+			path = DairyAppUITests;
+			sourceTree = "<group>";
+		};
+		1888DF4E29F2FACA004ED046 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF1B29F2FA36004ED046 /* AppDelegate.swift */,
+				1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */,
+				1888DF2729F2FA3A004ED046 /* Assets.xcassets */,
+				1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1888DF4F29F2FADD004ED046 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5029F2FAFF004ED046 /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		1888DF5229F2FB28004ED046 /* DairyModule */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5329F2FB40004ED046 /* View */,
+			);
+			path = DairyModule;
+			sourceTree = "<group>";
+		};
+		1888DF5329F2FB40004ED046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5429F2FB55004ED046 /* DairyViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1888DF5629F2FB80004ED046 /* NewNoteModule */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5729F2FB9A004ED046 /* View */,
+			);
+			path = NewNoteModule;
+			sourceTree = "<group>";
+		};
+		1888DF5729F2FB9A004ED046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1888DF5A29F2FBCC004ED046 /* StatisticModule */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5B29F2FC0D004ED046 /* View */,
+			);
+			path = StatisticModule;
+			sourceTree = "<group>";
+		};
+		1888DF5B29F2FC0D004ED046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1888DF5E29F2FC59004ED046 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF5F29F2FC68004ED046 /* View */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
+		1888DF5F29F2FC68004ED046 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1888DF1729F2FA36004ED046 /* DairyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1888DF4529F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyApp" */;
+			buildPhases = (
+				1888DF1429F2FA36004ED046 /* Sources */,
+				1888DF1529F2FA36004ED046 /* Frameworks */,
+				1888DF1629F2FA36004ED046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DairyApp;
+			productName = DairyApp;
+			productReference = 1888DF1829F2FA36004ED046 /* DairyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1888DF3029F2FA3A004ED046 /* DairyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1888DF4829F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppTests" */;
+			buildPhases = (
+				1888DF2D29F2FA3A004ED046 /* Sources */,
+				1888DF2E29F2FA3A004ED046 /* Frameworks */,
+				1888DF2F29F2FA3A004ED046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1888DF3329F2FA3A004ED046 /* PBXTargetDependency */,
+			);
+			name = DairyAppTests;
+			productName = DairyAppTests;
+			productReference = 1888DF3129F2FA3A004ED046 /* DairyAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1888DF3A29F2FA3A004ED046 /* DairyAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1888DF4B29F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppUITests" */;
+			buildPhases = (
+				1888DF3729F2FA3A004ED046 /* Sources */,
+				1888DF3829F2FA3A004ED046 /* Frameworks */,
+				1888DF3929F2FA3A004ED046 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1888DF3D29F2FA3A004ED046 /* PBXTargetDependency */,
+			);
+			name = DairyAppUITests;
+			productName = DairyAppUITests;
+			productReference = 1888DF3B29F2FA3A004ED046 /* DairyAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1888DF1029F2FA36004ED046 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					1888DF1729F2FA36004ED046 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					1888DF3029F2FA3A004ED046 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 1888DF1729F2FA36004ED046;
+					};
+					1888DF3A29F2FA3A004ED046 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = 1888DF1729F2FA36004ED046;
+					};
+				};
+			};
+			buildConfigurationList = 1888DF1329F2FA36004ED046 /* Build configuration list for PBXProject "DairyApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1888DF0F29F2FA36004ED046;
+			productRefGroup = 1888DF1929F2FA36004ED046 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1888DF1729F2FA36004ED046 /* DairyApp */,
+				1888DF3029F2FA3A004ED046 /* DairyAppTests */,
+				1888DF3A29F2FA3A004ED046 /* DairyAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1888DF1629F2FA36004ED046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1888DF2B29F2FA3A004ED046 /* LaunchScreen.storyboard in Resources */,
+				1888DF2829F2FA3A004ED046 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF2F29F2FA3A004ED046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF3929F2FA3A004ED046 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1888DF1429F2FA36004ED046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
+				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
+				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
+				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,
+				1888DF5129F2FAFF004ED046 /* MainTabBarController.swift in Sources */,
+				1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */,
+				1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */,
+				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF2D29F2FA3A004ED046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1888DF3629F2FA3A004ED046 /* DairyAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1888DF3729F2FA3A004ED046 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1888DF4229F2FA3A004ED046 /* DairyAppUITestsLaunchTests.swift in Sources */,
+				1888DF4029F2FA3A004ED046 /* DairyAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1888DF3329F2FA3A004ED046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1888DF1729F2FA36004ED046 /* DairyApp */;
+			targetProxy = 1888DF3229F2FA3A004ED046 /* PBXContainerItemProxy */;
+		};
+		1888DF3D29F2FA3A004ED046 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1888DF1729F2FA36004ED046 /* DairyApp */;
+			targetProxy = 1888DF3C29F2FA3A004ED046 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1888DF2A29F2FA3A004ED046 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1888DF4329F2FA3A004ED046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1888DF4429F2FA3A004ED046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1888DF4629F2FA3A004ED046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DairyApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1888DF4729F2FA3A004ED046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DairyApp/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1888DF4929F2FA3A004ED046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DairyApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DairyApp";
+			};
+			name = Debug;
+		};
+		1888DF4A29F2FA3A004ED046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DairyApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DairyApp";
+			};
+			name = Release;
+		};
+		1888DF4C29F2FA3A004ED046 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DairyApp;
+			};
+			name = Debug;
+		};
+		1888DF4D29F2FA3A004ED046 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MFZAMPHM55;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = k.DairyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = DairyApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1888DF1329F2FA36004ED046 /* Build configuration list for PBXProject "DairyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1888DF4329F2FA3A004ED046 /* Debug */,
+				1888DF4429F2FA3A004ED046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1888DF4529F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1888DF4629F2FA3A004ED046 /* Debug */,
+				1888DF4729F2FA3A004ED046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1888DF4829F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1888DF4929F2FA3A004ED046 /* Debug */,
+				1888DF4A29F2FA3A004ED046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1888DF4B29F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1888DF4C29F2FA3A004ED046 /* Debug */,
+				1888DF4D29F2FA3A004ED046 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1888DF2529F2FA36004ED046 /* DairyApp.xcdatamodel */,
+			);
+			currentVersion = 1888DF2529F2FA36004ED046 /* DairyApp.xcdatamodel */;
+			path = DairyApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1888DF1029F2FA36004ED046 /* Project object */;
+}
