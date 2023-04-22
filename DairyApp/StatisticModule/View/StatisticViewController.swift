@@ -12,6 +12,7 @@ class StatisticViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Статистика"
         view.backgroundColor = UIColor(named: "background")
     }
     

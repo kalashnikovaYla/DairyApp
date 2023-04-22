@@ -12,58 +12,41 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        generateTabBar()
-        setTabBarAppearence()
+        setupTabs()
     }
     
-
-    private func generateTabBar() {
-        viewControllers = [
-            
-            
-            generateVC(viewController: DairyViewController(),
-                       image: UIImage(systemName: "book")),
-            
-            generateVC(viewController: NewNoteViewController(),
-                       image: UIImage(systemName: "plus.app")),
-            
-            generateVC(viewController: StatisticViewController(),
-                       image: UIImage(systemName: "chart.bar.xaxis")),
-            
-            generateVC(viewController: SettingsViewController(),
-                       image: UIImage(systemName: "gearshape"))
-        ]
-    }
-
-    private func generateVC(viewController: UIViewController, image: UIImage?) -> UIViewController {
-        viewController.tabBarItem.title = title
-        viewController.tabBarItem.image = image
-        return viewController
-    }
-    
-    private func setTabBarAppearence() {
-        let positionOnX: CGFloat = 10
-        let positionOnY: CGFloat = 14
-        let width = tabBar.bounds.width - positionOnX * 2
-        let height = tabBar.bounds.height + positionOnY * 2
-        let roundLayer = CAShapeLayer()
+    private func setupTabs() {
         
-        let bezierPath = UIBezierPath(
-            roundedRect: CGRect(
-                x: positionOnX,
-                y: tabBar.bounds.minY - positionOnY,
-                width: width,
-                height: height
-            ),
-            cornerRadius: height/2
+        let dairyVC = DairyViewController()
+        let newNoteVC = NewNoteViewController()
+        let statisticsVC = StatisticViewController()
+        let settingsVC = SettingsViewController()
+        
+        let firstNavVC = UINavigationController(rootViewController: dairyVC)
+        let secondNavVC = UINavigationController(rootViewController: newNoteVC)
+        let thirdVC = UINavigationController(rootViewController: statisticsVC)
+        let forthVC = UINavigationController(rootViewController: settingsVC)
+        
+        let arrayVC = [dairyVC, newNoteVC, statisticsVC, settingsVC]
+        let arrayTabBarImage = ["book", "plus.app", "chart.bar.xaxis", "gearshape"]
+        for i in 0..<arrayVC.count {
+            arrayVC[i].navigationItem.largeTitleDisplayMode = .automatic
+            arrayVC[i].loadViewIfNeeded()
+            arrayVC[i].tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: arrayTabBarImage[i]), tag: i)
+        }
+        let arrayOfNavVC = [firstNavVC, secondNavVC, thirdVC, forthVC]
+        
+        setViewControllers(
+            arrayOfNavVC,
+            animated: true
         )
-        roundLayer.path = bezierPath.cgPath
-        tabBar.layer.insertSublayer(roundLayer, at: 0)
-        tabBar.itemWidth = width/5
-        tabBar.itemPositioning = .centered
+        for controller in arrayOfNavVC {
+            controller.navigationBar.prefersLargeTitles = true
+        }
         
-        roundLayer.fillColor = UIColor.white.cgColor
-        tabBar.tintColor = UIColor.black
+        tabBar.backgroundColor = .white
         tabBar.unselectedItemTintColor = UIColor(named: "selectedItem")
+        
     }
+  
 }

@@ -6,24 +6,46 @@
 //
 
 import UIKit
+import CoreData
 
-class DairyViewController: UIViewController {
+final class DairyViewController: UIViewController {
 
+    var model = [Note]()
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(DairyTableViewCell.self, forCellReuseIdentifier: DairyTableViewCell.identifier)
+        return tableView
+    }()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Дневник"
         view.backgroundColor = UIColor(named: "background")
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
+}
+
+extension DairyViewController: UITableViewDataSource, UITableViewDelegate {
+   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        model.count
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+   
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: DairyTableViewCell.identifier, for: indexPath)
+        return cell
     }
-    */
-
+    
+    
 }

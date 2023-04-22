@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */; };
+		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
+		182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */; };
+		182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339929F4154B00F52EFE /* FileManagerForImage.swift */; };
 		1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1B29F2FA36004ED046 /* AppDelegate.swift */; };
 		1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */; };
 		1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */; };
@@ -20,6 +24,7 @@
 		1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */; };
 		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
+		18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
+		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
+		182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		182F339929F4154B00F52EFE /* FileManagerForImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerForImage.swift; sourceTree = "<group>"; };
 		1888DF1829F2FA36004ED046 /* DairyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1888DF1B29F2FA36004ED046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +66,7 @@
 		1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +151,7 @@
 			children = (
 				1888DF1B29F2FA36004ED046 /* AppDelegate.swift */,
 				1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */,
+				182F339929F4154B00F52EFE /* FileManagerForImage.swift */,
 				1888DF2729F2FA3A004ED046 /* Assets.xcassets */,
 				1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */,
 			);
@@ -167,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF5429F2FB55004ED046 /* DairyViewController.swift */,
+				18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,6 +195,9 @@
 			isa = PBXGroup;
 			children = (
 				1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */,
+				182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */,
+				182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */,
+				182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -349,14 +364,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
 				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,
 				1888DF5129F2FAFF004ED046 /* MainTabBarController.swift in Sources */,
+				182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */,
 				1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */,
 				1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */,
+				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
+				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
+				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
