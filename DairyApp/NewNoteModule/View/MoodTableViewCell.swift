@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol MoodDidSelect: AnyObject {
+    func moodDidSeletEmotionalValue(with emotionalValue: Float)
+    func moodDidSeletPhysicalValue(with physicalValue: Float)
+}
+
+
 class MoodTableViewCell: UITableViewCell {
 
     static let identifier = "MoodTableViewCell"
+    
+    weak var delegate: MoodDidSelect?
     
     var emotionalValue: UILabel = {
         let label = UILabel()
@@ -71,10 +79,21 @@ class MoodTableViewCell: UITableViewCell {
             sliderPhysical.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             sliderPhysical.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
         ])
+        
+        sliderEmotional.addTarget(self, action: #selector(didSelectEmotional), for: .touchUpInside)
+        sliderPhysical.addTarget(self, action: #selector(didSelectPhysical), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc private func didSelectEmotional() {
+        delegate?.moodDidSeletEmotionalValue(with: sliderEmotional.value)
+    }
+
+    @objc private func didSelectPhysical() {
+        delegate?.moodDidSeletPhysicalValue(with: sliderPhysical.value)
     }
 
 }

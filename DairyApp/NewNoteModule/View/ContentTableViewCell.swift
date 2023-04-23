@@ -6,10 +6,18 @@
 //
 
 import UIKit
+ 
+protocol TextViewDidSelected: AnyObject {
+    func textViewDidSelected(with text: String)
+}
+
 
 final class ContentTableViewCell: UITableViewCell {
     
     static let identifier = "ContentTableViewCell"
+    
+    weak var delegate: TextViewDidSelected?
+    
     
     var textView: UITextView = {
         let textView = UITextView()
@@ -33,14 +41,22 @@ final class ContentTableViewCell: UITableViewCell {
             textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20)
         ])
-        
+        textView.delegate = self
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-   
 }
 
+
+extension ContentTableViewCell: UITextViewDelegate {
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        delegate?.textViewDidSelected(with: textView.text)
+        return true
+    }
+    
+}
 

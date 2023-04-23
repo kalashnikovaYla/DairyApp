@@ -9,6 +9,9 @@ import UIKit
 
 class NewNoteViewController: UIViewController {
 
+    var temporaryModel: TemporaryModel!
+    
+    
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,17 +46,19 @@ class NewNoteViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
         
+        temporaryModel = TemporaryModel()
         
     }
     
     //MARK: - Method
     
     @objc private func cancel() {
-        dismiss(animated: true)
+        //
     }
     
     @objc private func save() {
-        
+        tableView.endEditing(true)
+        print(temporaryModel ?? "nil")
     }
     
 }
@@ -96,17 +101,18 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell
             cell?.backgroundColor = UIColor(named: "background")
+            cell?.delegate = self
             return cell ?? UITableViewCell()
             
         case 1:
         
             let cell = tableView.dequeueReusableCell(withIdentifier: MoodTableViewCell.identifier, for: indexPath) as? MoodTableViewCell
-            
+            cell?.delegate = self
             return cell ?? UITableViewCell()
             
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier, for: indexPath) as? PhotoTableViewCell
-            
+            cell?.delegate = self 
             return cell ?? UITableViewCell()
             
         default:
@@ -135,3 +141,32 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 
+//MARK: - TextViewDidSelected, MoodDidSelect, PhotoDidSelect
+
+extension NewNoteViewController: TextViewDidSelected, MoodDidSelect, PhotoDidSelect {
+   
+    func textViewDidSelected(with text: String) {
+        temporaryModel.text = text
+    }
+    
+    func moodDidSeletEmotionalValue(with emotionalValue: Float) {
+        temporaryModel.emotionalValue = emotionalValue
+    }
+    
+    func moodDidSeletPhysicalValue(with physicalValue: Float) {
+        temporaryModel.physicalValue = physicalValue
+    }
+    
+    func photoDidSelect(with path: URL?) {
+        temporaryModel.pathToSelectedPhoto = path
+    }
+    
+    
+}
+
+struct TemporaryModel {
+    var text: String = ""
+    var emotionalValue: Float = 4
+    var physicalValue: Float = 7
+    var pathToSelectedPhoto: URL?
+}

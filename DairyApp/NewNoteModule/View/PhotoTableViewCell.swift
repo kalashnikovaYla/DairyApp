@@ -9,10 +9,14 @@ import UIKit
 import AVFoundation
 import Photos
 
+protocol PhotoDidSelect: AnyObject {
+    func photoDidSelect(with path: URL?)
+}
+
 class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 
     static let identifier = "PhotoTableViewCell"
-    
+    weak var delegate: PhotoDidSelect?
     
     private var photoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -79,7 +83,10 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
                 let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
                 let fileName = UUID().uuidString + ".png"
                 let fileURL = documentsDirectory.appendingPathComponent(fileName)
+                
+                delegate?.photoDidSelect(with: fileURL)
                 print(fileURL)
+                
                 if let data = pickedImage.pngData() {
                     do {
                         try data.write(to: fileURL)
