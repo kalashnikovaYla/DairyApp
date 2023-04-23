@@ -16,7 +16,8 @@ class NewNoteViewController: UIViewController {
                            forCellReuseIdentifier: ContentTableViewCell.identifier)
         tableView.register(MoodTableViewCell.self,
                            forCellReuseIdentifier: MoodTableViewCell.identifier)
-        tableView.register(PhotoTableViewCell.self, forCellReuseIdentifier: PhotoTableViewCell.identifier)
+        tableView.register(PhotoTableViewCell.self,
+                           forCellReuseIdentifier: PhotoTableViewCell.identifier)
         tableView.backgroundColor = UIColor(named: "background")
         return tableView
     }()
@@ -41,7 +42,8 @@ class NewNoteViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
-       
+        
+        
     }
     
     //MARK: - Method
@@ -53,6 +55,7 @@ class NewNoteViewController: UIViewController {
     @objc private func save() {
         
     }
+    
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -118,9 +121,17 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 200
         case 2:
-            return 200
+            return 500
         default:
             return 0
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.endEditing(true)
+    }
+   
 }
+
+
+

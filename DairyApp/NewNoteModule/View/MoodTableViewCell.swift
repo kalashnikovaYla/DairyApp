@@ -29,6 +29,7 @@ class MoodTableViewCell: UITableViewCell {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 10
+        slider.value = 4
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
@@ -37,6 +38,7 @@ class MoodTableViewCell: UITableViewCell {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 10
+        slider.value = 7
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
