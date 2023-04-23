@@ -34,6 +34,8 @@ class NewNoteViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(save))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "button1")
+        navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "button1")
         
         tableView.dataSource = self
         tableView.delegate = self

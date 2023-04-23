@@ -30,9 +30,9 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
             let button = UIButton()
             button.translatesAutoresizingMaskIntoConstraints = false
             button.setTitle("+", for: .normal)
-            button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .systemBlue
-            button.layer.cornerRadius = 20
+            button.setTitleColor(UIColor.white, for: .normal)
+            button.backgroundColor = UIColor(named: "selected")
+            button.layer.cornerRadius = 30
             button.clipsToBounds = true
             return button
         }()
@@ -44,7 +44,7 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        contentView.backgroundColor = UIColor(named: "background")
+        contentView.backgroundColor = UIColor(named: "smallBackground")
         contentView.addSubview(photoImageView)
         contentView.addSubview(addPhotoButton)
                 

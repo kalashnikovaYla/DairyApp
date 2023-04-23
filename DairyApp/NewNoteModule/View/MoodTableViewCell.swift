@@ -38,6 +38,8 @@ class MoodTableViewCell: UITableViewCell {
         slider.minimumValue = 0
         slider.maximumValue = 10
         slider.value = 4
+        slider.tintColor = UIColor(named: "button1")
+        slider.thumbTintColor = UIColor(named: "selected")
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
@@ -47,6 +49,8 @@ class MoodTableViewCell: UITableViewCell {
         slider.minimumValue = 0
         slider.maximumValue = 10
         slider.value = 7
+        slider.tintColor = UIColor(named: "button1")
+        slider.thumbTintColor = UIColor(named: "selected")
         slider.translatesAutoresizingMaskIntoConstraints = false
         return slider
     }()
@@ -62,7 +66,7 @@ class MoodTableViewCell: UITableViewCell {
         contentView.addSubview(emotionalValue)
         contentView.addSubview(physicalValue)
         
-        contentView.backgroundColor = UIColor(named: "background")
+        contentView.backgroundColor = UIColor(named: "smallBackground")
         
         NSLayoutConstraint.activate([
             emotionalValue.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),

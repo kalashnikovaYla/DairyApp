@@ -44,8 +44,9 @@ final class MainTabBarController: UITabBarController {
             controller.navigationBar.prefersLargeTitles = true
         }
         
-        tabBar.backgroundColor = .white
-        tabBar.unselectedItemTintColor = UIColor(named: "selectedItem")
+        tabBar.backgroundColor = UIColor(named: "tabBarColor")
+        tabBar.unselectedItemTintColor = UIColor.systemGray
+        tabBar.tintColor = UIColor(named: "selected")
         
     }
   

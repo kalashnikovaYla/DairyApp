@@ -23,7 +23,7 @@ final class ContentTableViewCell: UITableViewCell {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.layer.cornerRadius = 20
-        textView.backgroundColor = UIColor(named: "background")
+        textView.backgroundColor = UIColor(named: "smallBackground")
         textView.font = UIFont.systemFont(ofSize: 17)
         
         return textView
@@ -33,7 +33,7 @@ final class ContentTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         contentView.addSubview(textView)
-        
+        contentView.backgroundColor = UIColor(named: "smallBackground")
         
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
