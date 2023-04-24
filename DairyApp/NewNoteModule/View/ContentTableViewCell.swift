@@ -35,6 +35,7 @@ final class ContentTableViewCell: UITableViewCell {
         contentView.addSubview(textView)
         contentView.backgroundColor = UIColor(named: "smallBackground")
         
+        
         NSLayoutConstraint.activate([
             textView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),

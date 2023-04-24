@@ -69,17 +69,17 @@ class MoodTableViewCell: UITableViewCell {
         contentView.backgroundColor = UIColor(named: "smallBackground")
         
         NSLayoutConstraint.activate([
-            emotionalValue.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            emotionalValue.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             emotionalValue.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            sliderEmotional.topAnchor.constraint(equalTo: emotionalValue.bottomAnchor, constant: 20),
+            sliderEmotional.topAnchor.constraint(equalTo: emotionalValue.bottomAnchor, constant: 10),
             sliderEmotional.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             sliderEmotional.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
-            physicalValue.topAnchor.constraint(equalTo: sliderEmotional.bottomAnchor, constant: 30),
+            physicalValue.topAnchor.constraint(equalTo: sliderEmotional.bottomAnchor, constant: 15),
             physicalValue.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            sliderPhysical.topAnchor.constraint(equalTo: physicalValue.bottomAnchor, constant: 20),
+            sliderPhysical.topAnchor.constraint(equalTo: physicalValue.bottomAnchor, constant: 10),
             sliderPhysical.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             sliderPhysical.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
         ])

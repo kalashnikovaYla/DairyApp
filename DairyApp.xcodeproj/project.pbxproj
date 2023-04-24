@@ -24,6 +24,8 @@
 		1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */; };
 		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
+		18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD729F6CA150052321C /* TagTableViewCell.swift */; };
+		18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */; };
 		18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,8 @@
 		1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		18D9CFD729F6CA150052321C /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
+		18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +201,8 @@
 				1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */,
 				182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */,
 				182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */,
+				18D9CFD729F6CA150052321C /* TagTableViewCell.swift */,
+				18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */,
 				182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */,
 			);
 			path = View;
@@ -364,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */,
 				18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
@@ -374,6 +381,7 @@
 				1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */,
 				1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */,
 				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,
+				18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,

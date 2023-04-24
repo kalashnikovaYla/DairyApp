@@ -19,6 +19,8 @@ class NewNoteViewController: UIViewController {
                            forCellReuseIdentifier: ContentTableViewCell.identifier)
         tableView.register(MoodTableViewCell.self,
                            forCellReuseIdentifier: MoodTableViewCell.identifier)
+        tableView.register(TagTableViewCell.self,
+                           forCellReuseIdentifier: TagTableViewCell.identifier)
         tableView.register(PhotoTableViewCell.self,
                            forCellReuseIdentifier: PhotoTableViewCell.identifier)
         tableView.backgroundColor = UIColor(named: "background")
@@ -77,6 +79,8 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return "НАСТРОЕНИЕ"
         case 2:
+            return "ФАКТОРЫ"
+        case 3:
             return "ДОБАВЬТЕ ФОТО"
         default:
             return ""
@@ -84,7 +88,7 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,6 +97,7 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
         case 0: return 1
         case 1: return 1
         case 2: return 1
+        case 3: return 1
         default:
             return 0
         }
@@ -111,8 +116,13 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: MoodTableViewCell.identifier, for: indexPath) as? MoodTableViewCell
             cell?.delegate = self
             return cell ?? UITableViewCell()
-            
+        
         case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.identifier, for: indexPath) as? TagTableViewCell
+            
+            return cell ?? UITableViewCell()
+            
+        case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier, for: indexPath) as? PhotoTableViewCell
             cell?.delegate = self 
             return cell ?? UITableViewCell()
@@ -125,10 +135,12 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 200
+            return 160
         case 1:
-            return 200
+            return 170
         case 2:
+            return 400
+        case 3:
             return 500
         default:
             return 0
