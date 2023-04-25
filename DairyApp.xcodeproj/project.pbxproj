@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */; };
 		182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */; };
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
 		182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */; };
@@ -26,7 +27,6 @@
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
 		18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD729F6CA150052321C /* TagTableViewCell.swift */; };
 		18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */; };
-		18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
 		182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,7 +71,6 @@
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18D9CFD729F6CA150052321C /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF5429F2FB55004ED046 /* DairyViewController.swift */,
-				18E1F68029F3B80E00BC6777 /* DairyTableViewCell.swift */,
+				18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -371,7 +371,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */,
-				18E1F68129F3B80E00BC6777 /* DairyTableViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
@@ -384,6 +383,7 @@
 				18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
+				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

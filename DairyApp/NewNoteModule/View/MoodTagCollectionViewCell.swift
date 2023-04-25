@@ -14,7 +14,7 @@ class MoodTagCollectionViewCell: UICollectionViewCell {
     var label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         return label
     }()
         

@@ -12,7 +12,7 @@ class TagTableViewCell: UITableViewCell {
     static let identifier = "TagTableViewCell"
     private let collectionView: UICollectionView
     
-    let emotionalTag = ["#отдых", "#много работы", "#хобби", "#сериалы", "#вкусная еда", "#невкусная еда", "#общение", "#спорт", "#игры", "№выгорание"]
+    let emotionalTag = ["#отдых", "#много работы", "#хобби", "#сериалы", "#вкусная еда", "#невкусная еда", "#общение", "#спорт", "#игры", "#выгорание"]
     let physicalTag = ["#головная боль", "#мало сна", "#достаточно сна", "#ранний подьем", "#поздний подьем", "#усталость", "#простуда", "#лекарства"]
     
     var selectedTagsEmotional = Set<String>()
@@ -24,7 +24,8 @@ class TagTableViewCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: 135, height: 30)
+        
+        layout.itemSize = CGSize(width: 120, height: 30)
         layout.minimumInteritemSpacing = 2
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -50,18 +51,17 @@ class TagTableViewCell: UITableViewCell {
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "headerView")
         
-           // add collectionView to cell's contentView
-           contentView.addSubview(collectionView)
+        contentView.addSubview(collectionView)
         
-           collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-           NSLayoutConstraint.activate([
-               collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-               collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-               collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-               collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-           ])
-       }
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ])
+    }
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
