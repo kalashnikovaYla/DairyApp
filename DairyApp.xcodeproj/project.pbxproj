@@ -25,6 +25,9 @@
 		1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */; };
 		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
+		18AAC92F29F982BF00F4D4D8 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */; };
+		18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */; };
+		18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */; };
 		18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD729F6CA150052321C /* TagTableViewCell.swift */; };
 		18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +72,9 @@
 		1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
+		18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiEnum.swift; sourceTree = "<group>"; };
 		18D9CFD729F6CA150052321C /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTagCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -173,6 +179,7 @@
 		1888DF5229F2FB28004ED046 /* DairyModule */ = {
 			isa = PBXGroup;
 			children = (
+				18AAC92D29F982A900F4D4D8 /* Model */,
 				1888DF5329F2FB40004ED046 /* View */,
 			);
 			path = DairyModule;
@@ -183,6 +190,7 @@
 			children = (
 				1888DF5429F2FB55004ED046 /* DairyViewController.swift */,
 				18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */,
+				18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +246,15 @@
 				1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18AAC92D29F982A900F4D4D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */,
+				18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,10 +390,13 @@
 				18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
+				18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
 				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,
+				18AAC92F29F982BF00F4D4D8 /* WeekDay.swift in Sources */,
 				1888DF5129F2FAFF004ED046 /* MainTabBarController.swift in Sources */,
 				182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */,
+				18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */,
 				1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */,
 				1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */,
 				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,

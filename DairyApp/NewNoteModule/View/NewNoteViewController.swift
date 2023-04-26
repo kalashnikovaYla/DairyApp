@@ -124,7 +124,8 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier, for: indexPath) as? PhotoTableViewCell
-            cell?.delegate = self 
+            cell?.delegate = self
+            
             return cell ?? UITableViewCell()
             
         default:
