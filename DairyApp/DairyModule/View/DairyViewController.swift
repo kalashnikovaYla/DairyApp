@@ -44,12 +44,15 @@ SWIFT – это система, которую используют банки 
         WeekDay(name: "ВС")
     ]
 
+    
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .full
         dateFormatter.timeStyle = .none
         return dateFormatter
     }()
+    
+    var presenter: DairyPresenterProtocol!
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -183,4 +186,9 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
             return 300
         }
     }
+}
+
+
+extension DairyViewController: DairyViewProtocol {
+    
 }

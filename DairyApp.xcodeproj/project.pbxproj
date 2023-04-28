@@ -12,6 +12,11 @@
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
 		182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */; };
 		182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339929F4154B00F52EFE /* FileManagerForImage.swift */; };
+		187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7929FC1996008CC423 /* CoreDataManager.swift */; };
+		187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */; };
+		187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7E29FC356A008CC423 /* DairyPresenter.swift */; };
+		187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */; };
+		187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */; };
 		1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1B29F2FA36004ED046 /* AppDelegate.swift */; };
 		1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */; };
 		1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */; };
@@ -55,6 +60,11 @@
 		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
 		182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		182F339929F4154B00F52EFE /* FileManagerForImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerForImage.swift; sourceTree = "<group>"; };
+		187C4D7929FC1996008CC423 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
+		187C4D7E29FC356A008CC423 /* DairyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyPresenter.swift; sourceTree = "<group>"; };
+		187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNotePresenter.swift; sourceTree = "<group>"; };
+		187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPresenter.swift; sourceTree = "<group>"; };
 		1888DF1829F2FA36004ED046 /* DairyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1888DF1B29F2FA36004ED046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +114,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187C4D7D29FC354E008CC423 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				187C4D7E29FC356A008CC423 /* DairyPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		187C4D8229FC38D8008CC423 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		187C4D8329FC3A8C008CC423 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		1888DF0F29F2FA36004ED046 = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +196,8 @@
 				1888DF1B29F2FA36004ED046 /* AppDelegate.swift */,
 				1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */,
 				182F339929F4154B00F52EFE /* FileManagerForImage.swift */,
+				187C4D7929FC1996008CC423 /* CoreDataManager.swift */,
+				187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */,
 				1888DF2729F2FA3A004ED046 /* Assets.xcassets */,
 				1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */,
 			);
@@ -180,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				18AAC92D29F982A900F4D4D8 /* Model */,
+				187C4D7D29FC354E008CC423 /* Presenter */,
 				1888DF5329F2FB40004ED046 /* View */,
 			);
 			path = DairyModule;
@@ -199,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF5729F2FB9A004ED046 /* View */,
+				187C4D8229FC38D8008CC423 /* Presenter */,
 			);
 			path = NewNoteModule;
 			sourceTree = "<group>";
@@ -219,6 +257,7 @@
 		1888DF5A29F2FBCC004ED046 /* StatisticModule */ = {
 			isa = PBXGroup;
 			children = (
+				187C4D8329FC3A8C008CC423 /* Presenter */,
 				1888DF5B29F2FC0D004ED046 /* View */,
 			);
 			path = StatisticModule;
@@ -390,6 +429,8 @@
 				18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
+				187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */,
+				187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */,
 				18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
 				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,
@@ -402,9 +443,12 @@
 				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,
 				18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
+				187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */,
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
 				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
+				187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
+				187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

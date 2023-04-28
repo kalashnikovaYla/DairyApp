@@ -28,3 +28,8 @@ class StatisticViewController: UIViewController {
     */
 
 }
+
+
+extension StatisticViewController: StatisticViewProtocol {
+    
+}

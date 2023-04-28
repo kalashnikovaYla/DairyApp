@@ -11,6 +11,7 @@ class NewNoteViewController: UIViewController {
 
     var temporaryModel: TemporaryModel!
     
+    var presenter: NewNotePresenterProtocol?
     
     private var tableView: UITableView = {
         let tableView = UITableView()
@@ -184,4 +185,9 @@ struct TemporaryModel {
     var emotionalValue: Float = 4
     var physicalValue: Float = 7
     var pathToSelectedPhoto: URL?
+}
+
+
+extension NewNoteViewController: NewNoteViewProtocol {
+    
 }
