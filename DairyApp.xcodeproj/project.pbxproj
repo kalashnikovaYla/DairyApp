@@ -17,6 +17,8 @@
 		187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7E29FC356A008CC423 /* DairyPresenter.swift */; };
 		187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */; };
 		187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */; };
+		187C4D8729FC45BE008CC423 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8629FC45BE008CC423 /* NoteViewModel.swift */; };
+		187C4D8929FC5904008CC423 /* TagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8829FC5904008CC423 /* TagViewModel.swift */; };
 		1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1B29F2FA36004ED046 /* AppDelegate.swift */; };
 		1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */; };
 		1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF2429F2FA36004ED046 /* DairyApp.xcdatamodeld */; };
@@ -65,6 +67,8 @@
 		187C4D7E29FC356A008CC423 /* DairyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyPresenter.swift; sourceTree = "<group>"; };
 		187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNotePresenter.swift; sourceTree = "<group>"; };
 		187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPresenter.swift; sourceTree = "<group>"; };
+		187C4D8629FC45BE008CC423 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
+		187C4D8829FC5904008CC423 /* TagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewModel.swift; sourceTree = "<group>"; };
 		1888DF1829F2FA36004ED046 /* DairyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DairyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1888DF1B29F2FA36004ED046 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				187C4D7E29FC356A008CC423 /* DairyPresenter.swift */,
+				187C4D8629FC45BE008CC423 /* NoteViewModel.swift */,
+				187C4D8829FC5904008CC423 /* TagViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -434,7 +440,9 @@
 				18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
 				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,
+				187C4D8729FC45BE008CC423 /* NoteViewModel.swift in Sources */,
 				18AAC92F29F982BF00F4D4D8 /* WeekDay.swift in Sources */,
+				187C4D8929FC5904008CC423 /* TagViewModel.swift in Sources */,
 				1888DF5129F2FAFF004ED046 /* MainTabBarController.swift in Sources */,
 				182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */,
 				18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */,

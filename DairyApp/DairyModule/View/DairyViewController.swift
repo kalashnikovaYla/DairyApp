@@ -8,42 +8,12 @@
 import UIKit
 import CoreData
 
-
-struct Model {
-    var text: String
-    var index: Int
-    var tag: [String]
-    var date = Date() 
-    var image: UIImage?
-}
-
-
 final class DairyViewController: UIViewController {
 
     //MARK: - Property
     
-    let models = [Model(
-        text: """
-SWIFT – это система, которую используют банки для обмена платежами между странами. Она заменяет другие каналы связи и помогает передавать конфиденциальные сообщения с информацией о денежных переводах. Разбираемся, как устроена система SWIFT.
-""",
-        index: 0,
-        tag: ["плохой сон", "стресс", "выгорание"],
-        image: UIImage(named: "im2"))]
-    
-    
     
     let calendar = Calendar.current
-    
-    var weekDays: [WeekDay] = [
-        WeekDay(name: "ПН"),
-        WeekDay(name: "BT"),
-        WeekDay(name: "СР"),
-        WeekDay(name: "ЧТ"),
-        WeekDay(name: "ПТ"),
-        WeekDay(name: "СВ"),
-        WeekDay(name: "ВС")
-    ]
-
     
     let dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -126,7 +96,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return weekDays.count
+        return presenter.weekDays.count
     }
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -143,7 +113,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
             cell.backgroundColor = UIColor(named: "tagCell")
         }
         
-        cell.weekdayLabel.text = weekDays[indexPath.row].name
+        cell.weekdayLabel.text = presenter.weekDays[indexPath.row].name
         return cell
     }
     
@@ -162,7 +132,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
 extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return models.count
+        return presenter.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -172,15 +142,18 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderColor = UIColor(named: "button1")?.cgColor
         cell.clipsToBounds = true
         
-        cell.dateLabel.text = dateFormatter.string(from: Date())
-        cell.contentLabel.text = models[0].text
-        cell.smileLabel.text = Emoji(rawValue: models[0].index)?.emoji
-        cell.myImageView.image = models[0].image
+        cell.dateLabel.text = presenter.data?[indexPath.row].date
+        cell.contentLabel.text = presenter.data?[indexPath.row].text
+        cell.smileLabel.text = presenter.data?[indexPath.row].smile
+        if let image = presenter.data?[indexPath.row].image {
+            cell.myImageView.image = image
+        }
+        cell.tags = presenter.data?[indexPath.row].tag 
         return cell 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if models[indexPath.row].image != nil {
+        if presenter.data?[indexPath.row].image != nil {
             return 550
         } else {
             return 300
@@ -192,3 +165,5 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
 extension DairyViewController: DairyViewProtocol {
     
 }
+
+

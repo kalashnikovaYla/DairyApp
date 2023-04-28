@@ -26,7 +26,10 @@ struct FileManagerForImage {
         return nil
     }
 
-    func getImage(fileName: String) -> UIImage? {
+    func getImage(fileName: String?) -> UIImage? {
+        
+        guard let fileName = fileName else {return nil}
+        
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
         do {

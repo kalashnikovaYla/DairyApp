@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum Emoji: Int {
+enum Emoji: Float {
     case mood0 = 0
     case mood4 = 4
     case mood8 = 8

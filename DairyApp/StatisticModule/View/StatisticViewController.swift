@@ -9,6 +9,8 @@ import UIKit
 
 class StatisticViewController: UIViewController {
 
+    var presenter: StatisticPresenterProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
