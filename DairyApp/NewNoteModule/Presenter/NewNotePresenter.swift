@@ -7,9 +7,12 @@
 
 import Foundation
 
+
+
 protocol NewNotePresenterProtocol: AnyObject {
     var emotionalTag: [String] {get}
     var physicalTag: [String] {get}
+    var dataObserver: DataObserver {get}
     
     var selectedTagsEmotional: Set<String> {get set}
     var selectedTagsPhysical: Set<String> {get set}
@@ -23,13 +26,15 @@ protocol NewNotePresenterProtocol: AnyObject {
 }
 
 protocol NewNoteViewProtocol: AnyObject {
-    
+    func clearField()
 }
 
 final class NewNotePresenter: NewNotePresenterProtocol {
     
+    
     //MARK: - Property
     
+    var dataObserver: DataObserver
     var temporaryModel: TemporaryViewModel
 
     var emotionalTag = ["#отдых", "#много работы", "#хобби", "#сериалы", "#вкусная еда", "#невкусная еда", "#общение", "#спорт", "#игры", "#выгорание"]
@@ -38,7 +43,7 @@ final class NewNotePresenter: NewNotePresenterProtocol {
     var selectedTagsEmotional = Set<String>()
     var selectedTagsPhysical = Set<String>()
     
-    
+   
     weak var view: NewNoteViewProtocol?
     let coreDataManager: CoreDataManager
     let fileManager: FileManagerForImage
@@ -46,10 +51,11 @@ final class NewNotePresenter: NewNotePresenterProtocol {
     
     //MARK: - Init
     
-    init(view: NewNoteViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage) {
+    init(view: NewNoteViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage, dataObserver: DataObserver) {
         self.view = view
         self.coreDataManager = coreDataManager
         self.fileManager = fileManager
+        self.dataObserver = dataObserver
         temporaryModel = TemporaryViewModel()
     }
     
@@ -83,5 +89,9 @@ final class NewNotePresenter: NewNotePresenterProtocol {
                                       physicalIndex: temporaryModel.physicalValue,
                                       photoPath: temporaryModel.pathToSelectedPhoto,
                                       tagArray: temporaryModel.tag)
+        dataObserver.notifyObservers()
+        view?.clearField()
     }
+    
+   
 }

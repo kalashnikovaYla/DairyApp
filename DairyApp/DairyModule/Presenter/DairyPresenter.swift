@@ -10,8 +10,10 @@ import Foundation
 protocol DairyPresenterProtocol: AnyObject {
     var weekDays: [WeekDay] {get}
     var data: [NoteViewModel] {get}
-    func viewDidAppear()
-    func cellBackground(index: Int) -> Bool 
+    var dataObserver: DataObserver {get}
+    
+    func cellBackground(index: Int) -> Bool
+    func dataDidChange()
 }
 
 protocol DairyViewProtocol: AnyObject {
@@ -26,6 +28,7 @@ final class DairyPresenter: DairyPresenterProtocol {
     weak var view: DairyViewProtocol?
     let coreDataManager: CoreDataManager
     let fileManager: FileManagerForImage
+    var dataObserver: DataObserver
     
     var data: [NoteViewModel] = []
     
@@ -50,11 +53,11 @@ final class DairyPresenter: DairyPresenterProtocol {
     
     //MARK: - Init
     
-    init(view: DairyViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage) {
+    init(view: DairyViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage, dataObserver: DataObserver) {
         self.view = view
         self.coreDataManager = coreDataManager
         self.fileManager = fileManager
-        
+        self.dataObserver = dataObserver
         getAllNote()
     }
     
@@ -113,10 +116,6 @@ final class DairyPresenter: DairyPresenterProtocol {
         }
     }
     
-    public func viewDidAppear() {
-        getAllNote()
-    }
-    
     
     func cellBackground(index: Int) -> Bool {
         let today = Date()
@@ -125,5 +124,9 @@ final class DairyPresenter: DairyPresenterProtocol {
         } else {
             return false
         }
+    }
+    
+    func dataDidChange() {
+        getAllNote()
     }
 }

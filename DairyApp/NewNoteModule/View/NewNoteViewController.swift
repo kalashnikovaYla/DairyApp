@@ -279,5 +279,7 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
 }
 
 extension NewNoteViewController: NewNoteViewProtocol {
-    
+    func clearField() {
+        
+    }
 }

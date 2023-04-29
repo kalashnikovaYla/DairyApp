@@ -17,10 +17,11 @@ final class MainTabBarController: UITabBarController {
     
     private func setupTabs() {
         
-        let dairyVC = ModuleBuilder.createDairyModule()
-        let newNoteVC = ModuleBuilder.createNewNoteModule()
-        let statisticsVC = ModuleBuilder.createStatisticModule()
-        let settingsVC = ModuleBuilder.createSettingsModule()
+        let moduleBuilder = ModuleBuilder()
+        let dairyVC = moduleBuilder.createDairyModule()
+        let newNoteVC = moduleBuilder.createNewNoteModule()
+        let statisticsVC = moduleBuilder.createStatisticModule()
+        let settingsVC = moduleBuilder.createSettingsModule()
         
         let firstNavVC = UINavigationController(rootViewController: dairyVC)
         let secondNavVC = UINavigationController(rootViewController: newNoteVC)
