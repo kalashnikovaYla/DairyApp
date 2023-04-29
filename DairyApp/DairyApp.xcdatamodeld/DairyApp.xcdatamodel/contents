@@ -5,7 +5,7 @@
         <attribute name="emotionalIndex" optional="YES" attributeType="Float" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="photoPath" optional="YES" attributeType="String"/>
         <attribute name="physicalIndex" optional="YES" attributeType="Float" minValueString="0" maxValueString="10" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="tagArray" optional="YES" attributeType="Transformable"/>
+        <attribute name="tagArray" optional="YES" attributeType="Binary"/>
         <attribute name="text" optional="YES" attributeType="String"/>
     </entity>
 </model>

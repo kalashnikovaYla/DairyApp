@@ -12,15 +12,8 @@ final class DairyViewController: UIViewController {
 
     //MARK: - Property
     
-    
     let calendar = Calendar.current
     
-    let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-        dateFormatter.timeStyle = .none
-        return dateFormatter
-    }()
     
     var presenter: DairyPresenterProtocol!
     
@@ -65,6 +58,8 @@ final class DairyViewController: UIViewController {
         
     }
         
+    
+    
     //MARK: - Method
     
     func setupSubviews() {
@@ -106,25 +101,14 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
             for: indexPath) as? WeekDayCollectionViewCell
         else {return UICollectionViewCell()}
         
-        let today = Date()
-        if calendar.component(.weekday, from: today) == indexPath.row + 2 {
-            cell.backgroundColor = UIColor(named: "selected")
-        } else {
-            cell.backgroundColor = UIColor(named: "tagCell")
-        }
+        let colorString = presenter.cellBackground(index: indexPath.row) ? "selected": "tagCell"
+        cell.backgroundColor = UIColor(named: colorString)
         
         cell.weekdayLabel.text = presenter.weekDays[indexPath.row].name
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let today = Date()
-        let currentWeekday = indexPath.row + 2
-        if let selectedDate = calendar.nextDate(after: today, matching: .init(weekday: currentWeekday), matchingPolicy: .strict) {
-            print(selectedDate)
-        }
-    }
+    
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -132,7 +116,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
 extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.data?.count ?? 0
+        return presenter?.data.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -142,18 +126,18 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.borderColor = UIColor(named: "button1")?.cgColor
         cell.clipsToBounds = true
         
-        cell.dateLabel.text = presenter.data?[indexPath.row].date
-        cell.contentLabel.text = presenter.data?[indexPath.row].text
-        cell.smileLabel.text = presenter.data?[indexPath.row].smile
-        if let image = presenter.data?[indexPath.row].image {
+        cell.dateLabel.text = presenter?.data[indexPath.row].date
+        cell.contentLabel.text = presenter?.data[indexPath.row].text
+        cell.smileLabel.text = presenter?.data[indexPath.row].smile
+        if let image = presenter?.data[indexPath.row].image {
             cell.myImageView.image = image
         }
-        cell.tags = presenter.data?[indexPath.row].tag 
+        cell.tags = presenter?.data[indexPath.row].tag
         return cell 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if presenter.data?[indexPath.row].image != nil {
+        if presenter?.data[indexPath.row].image != nil {
             return 550
         } else {
             return 300
@@ -161,8 +145,17 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: - DairyViewProtocol
 
 extension DairyViewController: DairyViewProtocol {
+    func updateData() {
+        tableView.reloadData()
+    }
+    
+    func dataIsNotExist() {
+        
+    }
+    
     
 }
 

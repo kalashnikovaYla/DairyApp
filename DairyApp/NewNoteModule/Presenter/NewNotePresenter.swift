@@ -26,7 +26,9 @@ protocol NewNoteViewProtocol: AnyObject {
     
 }
 
-class NewNotePresenter: NewNotePresenterProtocol {
+final class NewNotePresenter: NewNotePresenterProtocol {
+    
+    //MARK: - Property
     
     var temporaryModel: TemporaryViewModel
 
@@ -42,6 +44,7 @@ class NewNotePresenter: NewNotePresenterProtocol {
     let fileManager: FileManagerForImage
     
     
+    //MARK: - Init
     
     init(view: NewNoteViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage) {
         self.view = view
@@ -49,6 +52,8 @@ class NewNotePresenter: NewNotePresenterProtocol {
         self.fileManager = fileManager
         temporaryModel = TemporaryViewModel()
     }
+    
+    //MARK: - Method
     
     func textViewDidSelected(with text: String) {
         temporaryModel.text = text

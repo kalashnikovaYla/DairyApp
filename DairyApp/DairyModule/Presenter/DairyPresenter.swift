@@ -9,20 +9,25 @@ import Foundation
 
 protocol DairyPresenterProtocol: AnyObject {
     var weekDays: [WeekDay] {get}
-    var data: [NoteViewModel]? {get}
+    var data: [NoteViewModel] {get}
+    func viewDidAppear()
+    func cellBackground(index: Int) -> Bool 
 }
 
 protocol DairyViewProtocol: AnyObject {
-    
+    func updateData()
+    func dataIsNotExist() 
 }
 
 final class DairyPresenter: DairyPresenterProtocol {
+    
+    //MARK: - Properties
     
     weak var view: DairyViewProtocol?
     let coreDataManager: CoreDataManager
     let fileManager: FileManagerForImage
     
-    var data: [NoteViewModel]?
+    var data: [NoteViewModel] = []
     
     var weekDays: [WeekDay] = [
         WeekDay(name: "ПН"),
@@ -30,7 +35,7 @@ final class DairyPresenter: DairyPresenterProtocol {
         WeekDay(name: "СР"),
         WeekDay(name: "ЧТ"),
         WeekDay(name: "ПТ"),
-        WeekDay(name: "СВ"),
+        WeekDay(name: "СБ"),
         WeekDay(name: "ВС")
     ]
 
@@ -41,6 +46,10 @@ final class DairyPresenter: DairyPresenterProtocol {
         return dateFormatter
     }()
     
+    var calendar = Calendar.current
+    
+    //MARK: - Init
+    
     init(view: DairyViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage) {
         self.view = view
         self.coreDataManager = coreDataManager
@@ -49,7 +58,7 @@ final class DairyPresenter: DairyPresenterProtocol {
         getAllNote()
     }
     
-    public func getAllNote() {
+    private func getAllNote() {
         coreDataManager.getAllNote { [weak self] result in
             
             guard let self = self else {return}
@@ -59,9 +68,31 @@ final class DairyPresenter: DairyPresenterProtocol {
                     
                    
                     let image = self.fileManager.getImage(fileName: note.photoPath)
-                    let index = note.emotionalIndex + note.physicalIndex
-                    let emoji = Emoji(rawValue: index)?.emoji ?? ""
-                    let tag = note.tagArray as? [String]
+                    let index = Int(note.emotionalIndex + note.physicalIndex)
+                    var emoji = ""
+                    
+                    switch index {
+                    case 0...4:
+                        emoji = "😞"
+                    case 5...8:
+                        emoji = "😔"
+                    case 9...11:
+                        emoji =  "😐"
+                    case 12...14:
+                        emoji =  "🙂"
+                    case 15...18:
+                        emoji =  "😊"
+                    case 19...20:
+                        emoji =  "😃"
+                    default:
+                        emoji = ""
+                    }
+                
+                    var tag: [String]? = []
+                    if let tagArray = note.tagArray {
+                        tag = try? NSKeyedUnarchiver.unarchiveObject(with: tagArray) as? [String]
+                    }
+                    
                     var dateString = ""
                     if let date = note.date {
                         dateString = self.dateFormatter.string(from: date)
@@ -73,12 +104,26 @@ final class DairyPresenter: DairyPresenterProtocol {
                                          tag: tag ?? [])
                 }
                 self.data = newViewModels
+                view?.updateData()
                 
             case .failure(let error):
+                view?.dataIsNotExist()
                 print(error)
             }
         }
     }
     
+    public func viewDidAppear() {
+        getAllNote()
+    }
     
+    
+    func cellBackground(index: Int) -> Bool {
+        let today = Date()
+        if calendar.component(.weekday, from: today) == index + 2 {
+            return true
+        } else {
+            return false
+        }
+    }
 }

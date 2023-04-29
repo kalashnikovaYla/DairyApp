@@ -14,8 +14,13 @@ class CoreDataManager {
     
     ///Get all note
     public func getAllNote(completion: @escaping (Result<[Note], Error>) -> Void){
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+
         do {
-            guard let data = try context?.fetch(Note.fetchRequest()) else {
+            guard let data = try context?.fetch(fetchRequest) else {
                 print("error")
                 return 
             }
@@ -58,7 +63,10 @@ class CoreDataManager {
             newNote.photoPath = photoPath
         }
         if let tagArray = tagArray {
-            newNote.tagArray = tagArray as NSArray
+            newNote.tagArray = try? NSKeyedArchiver.archivedData(
+                withRootObject: tagArray,
+                requiringSecureCoding: false
+            )
         }
         do {
             try context.save()

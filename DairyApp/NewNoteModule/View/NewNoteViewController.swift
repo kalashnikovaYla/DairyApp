@@ -185,11 +185,6 @@ extension NewNoteViewController: TextViewDidSelected, MoodDidSelect, PhotoDidSel
     func moodDidSeletPhysicalValue(with physicalValue: Float) {
         presenter.moodDidSeletPhysicalValue(with: physicalValue)
     }
-    /*
-     func photoDidSelect(with path: URL?) {
-         presenter.photoDidSelect(with: path)
-     }
-     */
    
     func photoDidSelect(photoData: Data?) {
         presenter.photoDidSelect(photoData: photoData)
