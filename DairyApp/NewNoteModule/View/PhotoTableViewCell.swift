@@ -10,7 +10,7 @@ import AVFoundation
 import Photos
 
 protocol PhotoDidSelect: AnyObject {
-    func photoDidSelect(with path: URL?)
+    func photoDidSelect(photoData: Data?)
 }
 
 class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -79,21 +79,25 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
                 selectedImage = pickedImage
                 photoImageView.image = pickedImage
                 
-                // Save image to file manager
-                let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                let fileName = UUID().uuidString + ".png"
-                let fileURL = documentsDirectory.appendingPathComponent(fileName)
+                delegate?.photoDidSelect(photoData: pickedImage.pngData())
+                /*
+                 // Save image to file manager
+                 let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+                 let fileName = UUID().uuidString + ".png"
+                 let fileURL = documentsDirectory.appendingPathComponent(fileName)
+                 
+                 delegate?.photoDidSelect(with: fileURL)
+                 print(fileURL)
+                 
+                 if let data = pickedImage.pngData() {
+                     do {
+                         try data.write(to: fileURL)
+                     } catch {
+                         print("Error saving image to file manager: \(error.localizedDescription)")
+                     }
+                 }
+                 */
                 
-                delegate?.photoDidSelect(with: fileURL)
-                print(fileURL)
-                
-                if let data = pickedImage.pngData() {
-                    do {
-                        try data.write(to: fileURL)
-                    } catch {
-                        print("Error saving image to file manager: \(error.localizedDescription)")
-                    }
-                }
             }
             
             picker.dismiss(animated: true, completion: nil)

@@ -56,6 +56,8 @@ final class DairyPresenter: DairyPresenterProtocol {
             switch result {
             case .success(let data):
                 let newViewModels = data.map { note in
+                    
+                   
                     let image = self.fileManager.getImage(fileName: note.photoPath)
                     let index = note.emotionalIndex + note.physicalIndex
                     let emoji = Emoji(rawValue: index)?.emoji ?? ""

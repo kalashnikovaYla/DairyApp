@@ -7,11 +7,11 @@
 
 import UIKit
 
-class NewNoteViewController: UIViewController {
+final class NewNoteViewController: UIViewController {
 
-    var temporaryModel: TemporaryModel!
+    //MARK: - Property
     
-    var presenter: NewNotePresenterProtocol?
+    var presenter: NewNotePresenterProtocol!
     
     private var tableView: UITableView = {
         let tableView = UITableView()
@@ -51,7 +51,7 @@ class NewNoteViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
         
-        temporaryModel = TemporaryModel()
+       
         
     }
     
@@ -63,7 +63,7 @@ class NewNoteViewController: UIViewController {
     
     @objc private func save() {
         tableView.endEditing(true)
-        print(temporaryModel ?? "nil")
+        presenter.saveButtonDidTapped()
     }
     
 }
@@ -107,24 +107,37 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.identifier, for: indexPath) as? ContentTableViewCell
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: ContentTableViewCell.identifier,
+                for: indexPath
+            ) as? ContentTableViewCell
             cell?.backgroundColor = UIColor(named: "background")
             cell?.delegate = self
             return cell ?? UITableViewCell()
             
         case 1:
         
-            let cell = tableView.dequeueReusableCell(withIdentifier: MoodTableViewCell.identifier, for: indexPath) as? MoodTableViewCell
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: MoodTableViewCell.identifier,
+                for: indexPath
+            ) as? MoodTableViewCell
             cell?.delegate = self
             return cell ?? UITableViewCell()
         
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: TagTableViewCell.identifier, for: indexPath) as? TagTableViewCell
-            
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: TagTableViewCell.identifier,
+                for: indexPath
+            ) as? TagTableViewCell
+            cell?.collectionView.delegate = self
+            cell?.collectionView.dataSource = self
             return cell ?? UITableViewCell()
             
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier, for: indexPath) as? PhotoTableViewCell
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: PhotoTableViewCell.identifier,
+                for: indexPath
+            ) as? PhotoTableViewCell
             cell?.delegate = self
             
             return cell ?? UITableViewCell()
@@ -162,31 +175,113 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
 extension NewNoteViewController: TextViewDidSelected, MoodDidSelect, PhotoDidSelect {
    
     func textViewDidSelected(with text: String) {
-        temporaryModel.text = text
+        presenter.textViewDidSelected(with: text)
     }
     
     func moodDidSeletEmotionalValue(with emotionalValue: Float) {
-        temporaryModel.emotionalValue = emotionalValue
+        presenter.moodDidSeletEmotionalValue(with: emotionalValue)
     }
     
     func moodDidSeletPhysicalValue(with physicalValue: Float) {
-        temporaryModel.physicalValue = physicalValue
+        presenter.moodDidSeletPhysicalValue(with: physicalValue)
     }
-    
-    func photoDidSelect(with path: URL?) {
-        temporaryModel.pathToSelectedPhoto = path
+    /*
+     func photoDidSelect(with path: URL?) {
+         presenter.photoDidSelect(with: path)
+     }
+     */
+   
+    func photoDidSelect(photoData: Data?) {
+        presenter.photoDidSelect(photoData: photoData)
     }
-    
     
 }
 
-struct TemporaryModel {
-    var text: String = ""
-    var emotionalValue: Float = 4
-    var physicalValue: Float = 7
-    var pathToSelectedPhoto: URL?
-}
+//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
+extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 50)
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return presenter.emotionalTag.count
+        case 1:
+            return presenter.physicalTag.count
+        default:
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        switch indexPath.section {
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoodTagCollectionViewCell.identifier, for: indexPath) as! MoodTagCollectionViewCell
+            cell.label.text = presenter.emotionalTag[indexPath.row]
+            cell.backgroundColor = UIColor(named: "tagCell")
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoodTagCollectionViewCell.identifier, for: indexPath) as! MoodTagCollectionViewCell
+            cell.label.text = presenter.physicalTag[indexPath.row]
+            cell.backgroundColor = UIColor(named: "tagCell")
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! MoodTagCollectionViewCell
+        guard let text = cell.label.text else {return}
+        
+        switch indexPath.section {
+            
+        case 0:
+            if !presenter.selectedTagsEmotional.contains(text) {
+                presenter.selectedTagsEmotional.insert(text)
+                cell.backgroundColor = UIColor(named: "selected")
+            } else {
+                presenter.selectedTagsEmotional.remove(text)
+                cell.backgroundColor = UIColor(named: "tagCell")
+            }
+            
+        case 1:
+            
+            if !(presenter.selectedTagsPhysical.contains(text)) {
+                presenter.selectedTagsPhysical.insert(text)
+                cell.backgroundColor = UIColor(named: "selected")
+            } else {
+                presenter.selectedTagsPhysical.remove(text)
+                cell.backgroundColor = UIColor(named: "tagCell")
+            }
+            
+        default:
+            break
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath)
+           
+           let label = UILabel(frame: CGRect(x: 16, y: 0, width: headerView.frame.width - 16, height: headerView.frame.height))
+           label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+           label.textColor = .label
+           label.text = (indexPath.section == 0 ? "Настроение" : "Здоровье")
+           headerView.addSubview(label)
+           
+           return headerView
+    }
+}
 
 extension NewNoteViewController: NewNoteViewProtocol {
     

@@ -10,12 +10,15 @@ import UIKit
 
 class CoreDataManager {
     
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     ///Get all note
     public func getAllNote(completion: @escaping (Result<[Note], Error>) -> Void){
         do {
-            let data = try context.fetch(Note.fetchRequest())
+            guard let data = try context?.fetch(Note.fetchRequest()) else {
+                print("error")
+                return 
+            }
             completion(.success(data))
         } catch let error {
             completion(.failure(error))
@@ -30,7 +33,7 @@ class CoreDataManager {
         fetchRequest.predicate = predicate
         
         do {
-            let result = try context.fetch(fetchRequest) as? [Note]
+            let result = try context?.fetch(fetchRequest) as? [Note]
             completion(.success(result ?? []))
         } catch let error {
             completion(.failure(error))
@@ -40,7 +43,10 @@ class CoreDataManager {
     
     ///Save new note
     public func createNewNote(text: String?, date: Date, emotionalIndex: Float, physicalIndex: Float, photoPath: String?, tagArray: [String]?) {
-        
+        guard let context = context else {
+            print("error")
+            return
+        }
         let newNote = Note(context: context)
         if let text = text {
             newNote.text = text
@@ -63,6 +69,10 @@ class CoreDataManager {
     
     ///Delete note
     public func deleteNote(note: Note) {
+        guard let context = context else {
+            print("error")
+            return
+        }
         context.delete(note)
         do {
             try context.save()

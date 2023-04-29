@@ -12,6 +12,7 @@
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
 		182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */; };
 		182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339929F4154B00F52EFE /* FileManagerForImage.swift */; };
+		18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18729E4029FD258B00887CEF /* TemporatyViewModel.swift */; };
 		187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7929FC1996008CC423 /* CoreDataManager.swift */; };
 		187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */; };
 		187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7E29FC356A008CC423 /* DairyPresenter.swift */; };
@@ -62,6 +63,7 @@
 		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
 		182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		182F339929F4154B00F52EFE /* FileManagerForImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerForImage.swift; sourceTree = "<group>"; };
+		18729E4029FD258B00887CEF /* TemporatyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporatyViewModel.swift; sourceTree = "<group>"; };
 		187C4D7929FC1996008CC423 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
 		187C4D7E29FC356A008CC423 /* DairyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyPresenter.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18729E3F29FD255800887CEF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18729E4029FD258B00887CEF /* TemporatyViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		187C4D7D29FC354E008CC423 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +251,7 @@
 		1888DF5629F2FB80004ED046 /* NewNoteModule */ = {
 			isa = PBXGroup;
 			children = (
+				18729E3F29FD255800887CEF /* Model */,
 				1888DF5729F2FB9A004ED046 /* View */,
 				187C4D8229FC38D8008CC423 /* Presenter */,
 			);
@@ -456,6 +467,7 @@
 				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
 				187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
+				18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */,
 				187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

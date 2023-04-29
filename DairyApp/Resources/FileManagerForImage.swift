@@ -10,11 +10,11 @@ import UIKit
 
 struct FileManagerForImage {
     
-    func saveImage(image: UIImage) -> String? {
+    func saveImage(imageData: Data?) -> String? {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let fileName = UUID().uuidString + ".png"
         let fileURL = documentsDirectory.appendingPathComponent(fileName)
-        if let imageData = image.pngData() {
+        if let imageData = imageData {
             do {
                 try imageData.write(to: fileURL)
                 return fileName
