@@ -92,6 +92,7 @@ class MoodTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     @objc private func didSelectEmotional() {
         delegate?.moodDidSeletEmotionalValue(with: sliderEmotional.value)
     }

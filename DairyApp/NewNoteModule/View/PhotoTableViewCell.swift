@@ -80,23 +80,7 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
                 photoImageView.image = pickedImage
                 
                 delegate?.photoDidSelect(photoData: pickedImage.pngData())
-                /*
-                 // Save image to file manager
-                 let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-                 let fileName = UUID().uuidString + ".png"
-                 let fileURL = documentsDirectory.appendingPathComponent(fileName)
-                 
-                 delegate?.photoDidSelect(with: fileURL)
-                 print(fileURL)
-                 
-                 if let data = pickedImage.pngData() {
-                     do {
-                         try data.write(to: fileURL)
-                     } catch {
-                         print("Error saving image to file manager: \(error.localizedDescription)")
-                     }
-                 }
-                 */
+                
                 
             }
             

@@ -102,6 +102,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
         else {return UICollectionViewCell()}
         
         let colorString = presenter.cellBackground(index: indexPath.row) ? "selected": "tagCell"
+        
         cell.backgroundColor = UIColor(named: colorString)
         
         cell.weekdayLabel.text = presenter.weekDays[indexPath.row].name
@@ -133,6 +134,7 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
             cell.myImageView.image = image
         }
         cell.tags = presenter?.data[indexPath.row].tag
+        cell.collectionView.reloadData()
         return cell 
     }
     

@@ -100,6 +100,15 @@ class DairyTableViewCell: UITableViewCell {
     }
     
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        myImageView.image = nil
+        smileLabel.text = nil
+        dateLabel.text = nil
+        contentLabel.text = nil 
+    }
+    
+    
     func createCollectionView() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
