@@ -10,10 +10,8 @@ import Foundation
 protocol DairyPresenterProtocol: AnyObject {
     var weekDays: [WeekDay] {get}
     var data: [NoteViewModel] {get}
-    var dataObserver: DataObserver {get}
     
     func cellBackground(index: Int) -> Bool
-    func dataDidChange()
 }
 
 protocol DairyViewProtocol: AnyObject {
@@ -21,7 +19,7 @@ protocol DairyViewProtocol: AnyObject {
     func dataIsNotExist() 
 }
 
-final class DairyPresenter: DairyPresenterProtocol {
+final class DairyPresenter: DairyPresenterProtocol, PresenterProtocol {
     
     //MARK: - Properties
     

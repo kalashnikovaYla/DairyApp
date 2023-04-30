@@ -47,7 +47,7 @@ final class MainTabBarController: UITabBarController {
         
         tabBar.backgroundColor = UIColor(named: "tabBarColor")
         tabBar.unselectedItemTintColor = UIColor.systemGray
-        tabBar.tintColor = UIColor(named: "selected")
+        tabBar.tintColor = UIColor(named: "button1")
         
     }
   

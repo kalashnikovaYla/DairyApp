@@ -17,7 +17,14 @@ protocol StatisticViewProtocol: AnyObject {
     func settingsCharts()
 }
 
-final class StatisticPresenter: StatisticPresenterProtocol {
+final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
+    
+    var dataObserver: DataObserver
+    
+    func dataDidChange() {
+        loadingView(withIndex: 0)
+    }
+    
     
     //MARK: - Property
     
@@ -30,10 +37,11 @@ final class StatisticPresenter: StatisticPresenterProtocol {
     
     //MARK: - Init
     
-    init(view: StatisticViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage) {
+    init(view: StatisticViewProtocol, coreDataManager: CoreDataManager, fileManager: FileManagerForImage, dataObserver: DataObserver) {
         self.view = view
         self.coreDataManager = coreDataManager
         self.fileManager = fileManager
+        self.dataObserver = dataObserver
     }
     
     

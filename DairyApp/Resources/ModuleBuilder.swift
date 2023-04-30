@@ -49,7 +49,8 @@ class ModuleBuilder: BuilderProtocol {
         let fileManager = FileManagerForImage()
         let presenter = StatisticPresenter(view: view,
                                            coreDataManager: coreDataManager,
-                                           fileManager: fileManager)
+                                           fileManager: fileManager,
+                                           dataObserver: dataObserver)
         view.presenter = presenter
         return view
     }
@@ -62,8 +63,8 @@ class ModuleBuilder: BuilderProtocol {
 
 
 class DataObserver {
-    private var observers: [DairyPresenterProtocol] = []
-    func addObserver(observer: DairyPresenterProtocol) {
+    private var observers: [PresenterProtocol] = []
+    func addObserver(observer: PresenterProtocol) {
         observers.append(observer)
     }
     func notifyObservers() {
@@ -71,4 +72,9 @@ class DataObserver {
             $0.dataDidChange()
         }
     }
+}
+
+protocol PresenterProtocol {
+    var dataObserver: DataObserver {get}
+    func dataDidChange()
 }
