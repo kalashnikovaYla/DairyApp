@@ -13,8 +13,7 @@ final class StatisticViewController: UIViewController {
     //MARK: - Property
     
     var presenter: StatisticPresenterProtocol!
-    let coreDataManager = CoreDataManager()
-    
+   
     let segmentControl: UISegmentedControl = {
         let segmentedControl = UISegmentedControl(items: ["ДЕНЬ", "НЕДЕЛЯ", "МЕСЯЦ"])
         segmentedControl.selectedSegmentIndex = 0
@@ -24,10 +23,8 @@ final class StatisticViewController: UIViewController {
         return segmentedControl
     }()
     
-    var emotionalIndexValues = [Double]()
-    var physicalIndexValues = [Double]()
-    
     var barChart: BarChartView!
+    
     
     //MARK: - Life cycle
     
@@ -47,27 +44,22 @@ final class StatisticViewController: UIViewController {
             segmentControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
         createChart()
-        loadChartDataForCurrentSegment()
+        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
+        
     }
     
 
     //MARK: - Methods
     
     @objc func segmentedControlChanged() {
-        loadChartDataForCurrentSegment()
+        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
     }
     
     
     func createChart() {
-        //Create bar chart
         barChart = BarChartView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width))
         barChart.backgroundColor = UIColor(named: "background")
         barChart.gridBackgroundColor = UIColor(named: "background") ?? UIColor.systemBackground
-        
-
-    
-        view.addSubview(barChart)
-        barChart.center = view.center
         
         barChart.animate(yAxisDuration: 2.0)
         barChart.pinchZoomEnabled = false
@@ -77,73 +69,23 @@ final class StatisticViewController: UIViewController {
         barChart.drawGridBackgroundEnabled = true
         barChart.leftAxis.axisMinimum = 0
         barChart.rightAxis.axisMinimum = 0
+        
+        view.addSubview(barChart)
+        barChart.center = view.center
     }
 
-    func loadChartDataForCurrentSegment() {
+}
+
+//MARK: - StatisticViewProtocol
+
+extension StatisticViewController: StatisticViewProtocol {
     
-        switch segmentControl.selectedSegmentIndex {
-        case 0:
-            coreDataManager.searchTodayNote { [weak self] result in
-                guard let self = self else {return}
-                switch result {
-                case .success(let notes):
-                    
-                    self.emotionalIndexValues = notes.compactMap {
-                        Double($0.emotionalIndex).rounded()
-                    }
-                    self.physicalIndexValues = notes.compactMap {
-                        Double($0.physicalIndex).rounded()
-                    }
-                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-            
-        case 1:
-            coreDataManager.searchWeekdayNote { [weak self] result in
-                guard let self = self else {return}
-                
-                switch result {
-                case .success(let notes):
-                    let averageArrays = self.averageValuesByDay(notes: notes)
-                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0).rounded()}
-                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0).rounded()}
-                    
-                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        case 2:
-            coreDataManager.searchMonthNote { [weak self] result in
-                guard let self = self else {return}
-                
-                switch result {
-                case .success(let notes):
-                    
-                    let averageArrays = self.averageValuesByDay(notes: notes)
-                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0).rounded()}
-                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0).rounded()}
-                    
-                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
-                    
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        default:
-            break
-        }
-    }
-    
-    
-    func settingsCharts(emotionalIndexValues: [Double], physicalIndexValues: [Double]) {
+    func settingsCharts() {
         
-        let emotionalEntries = emotionalIndexValues.enumerated().map {
+        let emotionalEntries = presenter.emotionalIndexValues.enumerated().map {
             BarChartDataEntry(x: Double($0.offset), y: $0.element)
         }
-        let physicalEntries = physicalIndexValues.enumerated().map {
+        let physicalEntries = presenter.physicalIndexValues.enumerated().map {
             BarChartDataEntry(x: Double($0.offset), y: $0.element)
         }
         let emotionalSet = BarChartDataSet(entries: emotionalEntries, label: "НАСТРОЕНИЕ")
@@ -174,29 +116,4 @@ final class StatisticViewController: UIViewController {
         barChart.data = data
         barChart.notifyDataSetChanged()
     }
-    
-    func averageValuesByDay(notes: [Note]) -> (emotionalIndex: [Float], physicalIndex: [Float]) {
-        let calendar = Calendar.current
-        
-        let groups = Dictionary(grouping: notes) { note -> Date in
-            
-            let components = calendar.dateComponents([.year, .month, .day], from: note.date ?? Date())
-            return calendar.date(from: components)!
-        }
-        let emotionalIndex = groups.mapValues { notes -> Float in
-            let values = notes.map { $0.emotionalIndex }
-            return values.reduce(0, +) / Float(values.count)
-        }.values.sorted()
-        let physicalIndex = groups.mapValues { notes -> Float in
-            let values = notes.map { $0.physicalIndex }
-            return values.reduce(0, +) / Float(values.count)
-        }.values.sorted()
-        return (emotionalIndex, physicalIndex)
-    }
-
-}
-
-//MARK: - StatisticViewProtocol
-extension StatisticViewController: StatisticViewProtocol {
-    
 }
