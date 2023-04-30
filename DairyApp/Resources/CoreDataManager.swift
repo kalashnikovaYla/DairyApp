@@ -45,6 +45,59 @@ class CoreDataManager {
         }
     }
     
+    ///Search today note
+    public func searchTodayNote(completion: @escaping (Result<[Note], Error>) -> Void) {
+        
+        let startDate = Calendar.current.startOfDay(for: Date())
+        guard let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate) as? NSDate else {return}
+        
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
+        
+        
+        do {
+            let result = try context?.fetch(fetchRequest) as? [Note]
+            completion(.success(result ?? []))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    ///Search weekday note
+    public func searchWeekdayNote(completion: @escaping (Result<[Note], Error>) -> Void) {
+        
+        guard let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date()) as? NSDate else {return}
+        let endDate = Date()
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
+        
+        do {
+            let result = try context?.fetch(fetchRequest) as? [Note]
+            completion(.success(result ?? []))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    ///Search month note
+    public func searchMonthNote(completion: @escaping (Result<[Note], Error>) -> Void) {
+        
+        guard let startDate = Calendar.current.date(byAdding: .month, value: -1, to: Date()) as? NSDate else {return}
+        let endDate = Date()
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
+        
+        do {
+            let result = try context?.fetch(fetchRequest) as? [Note]
+            completion(.success(result ?? []))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
     
     ///Save new note
     public func createNewNote(text: String?, date: Date, emotionalIndex: Float, physicalIndex: Float, photoPath: String?, tagArray: [String]?) {
