@@ -102,27 +102,49 @@ final class StatisticViewController: UIViewController {
         switch segmentControl.selectedSegmentIndex {
         case 0:
             coreDataManager.searchTodayNote { [weak self] result in
+                guard let self = self else {return}
                 switch result {
                 case .success(let notes):
-                    self?.settingsCurrentData(notes: notes)
+                    //self.settingsCurrentData(notes: notes)
+                    
+                    self.emotionalIndexValues = notes.compactMap {
+                        Double($0.emotionalIndex)
+                    }
+                    self.physicalIndexValues = notes.compactMap {
+                        Double($0.physicalIndex)
+                    }
+                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
                 case .failure(let error):
                     print(error)
                 }
             }
+            
         case 1:
             coreDataManager.searchWeekdayNote { [weak self] result in
+                guard let self = self else {return}
                 switch result {
                 case .success(let notes):
-                    self?.settingsCurrentData(notes: notes)
+                    let averageArrays = self.averageValuesByDay(notes: notes)
+                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0)}
+                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0)}
+                    
+                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
                 case .failure(let error):
                     print(error)
                 }
             }
         case 2:
             coreDataManager.searchMonthNote { [weak self] result in
+                guard let self = self else {return}
                 switch result {
                 case .success(let notes):
-                    self?.settingsCurrentData(notes: notes)
+                    
+                    let averageArrays = self.averageValuesByDay(notes: notes)
+                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0)}
+                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0)}
+                    
+                    self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
+                    
                 case .failure(let error):
                     print(error)
                 }
@@ -132,13 +154,9 @@ final class StatisticViewController: UIViewController {
         }
     }
     
-    func settingsCurrentData(notes: [Note]) {
-        emotionalIndexValues = notes.compactMap {
-            Double($0.emotionalIndex)
-        }
-        physicalIndexValues = notes.compactMap {
-            Double($0.physicalIndex)
-        }
+    
+    func settingsCharts(emotionalIndexValues: [Double], physicalIndexValues: [Double]) {
+        
         let emotionalEntries = emotionalIndexValues.enumerated().map {
             BarChartDataEntry(x: Double($0.offset), y: $0.element)
         }
@@ -171,6 +189,25 @@ final class StatisticViewController: UIViewController {
         barChart.notifyDataSetChanged()
     }
     
+    func averageValuesByDay(notes: [Note]) -> (emotionalIndex: [Float], physicalIndex: [Float]) {
+        let calendar = Calendar.current
+        
+        let groups = Dictionary(grouping: notes) { note -> Date in
+            
+            let components = calendar.dateComponents([.year, .month, .day], from: note.date ?? Date())
+            return calendar.date(from: components)!
+        }
+        let emotionalIndex = groups.mapValues { notes -> Float in
+            let values = notes.map { $0.emotionalIndex }
+            return values.reduce(0, +) / Float(values.count)
+        }.values.sorted()
+        let physicalIndex = groups.mapValues { notes -> Float in
+            let values = notes.map { $0.physicalIndex }
+            return values.reduce(0, +) / Float(values.count)
+        }.values.sorted()
+        return (emotionalIndex, physicalIndex)
+    }
+
 }
 
 //MARK: - StatisticViewProtocol
