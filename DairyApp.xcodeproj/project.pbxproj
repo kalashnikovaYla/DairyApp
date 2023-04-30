@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1686B5BC24EAAADFE863F133 /* Pods_DairyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A802883CA478AAADA88BA265 /* Pods_DairyAppTests.framework */; };
 		18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */; };
 		182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */; };
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
@@ -38,6 +39,8 @@
 		18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */; };
 		18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD729F6CA150052321C /* TagTableViewCell.swift */; };
 		18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */; };
+		4EDA8B49DF260A29BDBA490B /* Pods_DairyApp_DairyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7859DB7289CD0CFC939EB4B1 /* Pods_DairyApp_DairyAppUITests.framework */; };
+		86A02E38AA98B12F76B70DAF /* Pods_DairyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3C91D46DE58A41AB6B47E1 /* Pods_DairyApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +96,15 @@
 		18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiEnum.swift; sourceTree = "<group>"; };
 		18D9CFD729F6CA150052321C /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTableViewCell.swift; sourceTree = "<group>"; };
 		18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		1A5DC2C2EE16313BFC75A071 /* Pods-DairyApp-DairyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp-DairyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		43C9B820C17FAEC3CAC850F3 /* Pods-DairyApp-DairyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp-DairyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E3C91D46DE58A41AB6B47E1 /* Pods_DairyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69F007186DAF6695F359ADA3 /* Pods-DairyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyAppTests.release.xcconfig"; path = "Target Support Files/Pods-DairyAppTests/Pods-DairyAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		730200DEB2B6D67FA522F07B /* Pods-DairyAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyAppTests.debug.xcconfig"; path = "Target Support Files/Pods-DairyAppTests/Pods-DairyAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7859DB7289CD0CFC939EB4B1 /* Pods_DairyApp_DairyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairyApp_DairyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A802883CA478AAADA88BA265 /* Pods_DairyAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairyAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D57D19FBDC2B9892C9EFB692 /* Pods-DairyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp.release.xcconfig"; path = "Target Support Files/Pods-DairyApp/Pods-DairyApp.release.xcconfig"; sourceTree = "<group>"; };
+		DDBEFDC77D4FA9C29206E081 /* Pods-DairyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp.debug.xcconfig"; path = "Target Support Files/Pods-DairyApp/Pods-DairyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86A02E38AA98B12F76B70DAF /* Pods_DairyApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1686B5BC24EAAADFE863F133 /* Pods_DairyAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +128,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EDA8B49DF260A29BDBA490B /* Pods_DairyApp_DairyAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +176,8 @@
 				1888DF3429F2FA3A004ED046 /* DairyAppTests */,
 				1888DF3E29F2FA3A004ED046 /* DairyAppUITests */,
 				1888DF1929F2FA36004ED046 /* Products */,
+				F71D3CAC0E7BF9245E3B32D7 /* Pods */,
+				E674167C5B8A4BC0EBB6E03C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -313,6 +330,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E674167C5B8A4BC0EBB6E03C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E3C91D46DE58A41AB6B47E1 /* Pods_DairyApp.framework */,
+				7859DB7289CD0CFC939EB4B1 /* Pods_DairyApp_DairyAppUITests.framework */,
+				A802883CA478AAADA88BA265 /* Pods_DairyAppTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F71D3CAC0E7BF9245E3B32D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDBEFDC77D4FA9C29206E081 /* Pods-DairyApp.debug.xcconfig */,
+				D57D19FBDC2B9892C9EFB692 /* Pods-DairyApp.release.xcconfig */,
+				1A5DC2C2EE16313BFC75A071 /* Pods-DairyApp-DairyAppUITests.debug.xcconfig */,
+				43C9B820C17FAEC3CAC850F3 /* Pods-DairyApp-DairyAppUITests.release.xcconfig */,
+				730200DEB2B6D67FA522F07B /* Pods-DairyAppTests.debug.xcconfig */,
+				69F007186DAF6695F359ADA3 /* Pods-DairyAppTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -320,9 +361,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1888DF4529F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyApp" */;
 			buildPhases = (
+				AB90ADC7F2816C3CECF730C9 /* [CP] Check Pods Manifest.lock */,
 				1888DF1429F2FA36004ED046 /* Sources */,
 				1888DF1529F2FA36004ED046 /* Frameworks */,
 				1888DF1629F2FA36004ED046 /* Resources */,
+				44A4C84504EDFB274AE047ED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,6 +380,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1888DF4829F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppTests" */;
 			buildPhases = (
+				6DFC07375124FE51215B2A35 /* [CP] Check Pods Manifest.lock */,
 				1888DF2D29F2FA3A004ED046 /* Sources */,
 				1888DF2E29F2FA3A004ED046 /* Frameworks */,
 				1888DF2F29F2FA3A004ED046 /* Resources */,
@@ -355,9 +399,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1888DF4B29F2FA3A004ED046 /* Build configuration list for PBXNativeTarget "DairyAppUITests" */;
 			buildPhases = (
+				4B9A944645C8EF75B25601E6 /* [CP] Check Pods Manifest.lock */,
 				1888DF3729F2FA3A004ED046 /* Sources */,
 				1888DF3829F2FA3A004ED046 /* Frameworks */,
 				1888DF3929F2FA3A004ED046 /* Resources */,
+				571BACFF9FA18D1E4F866D6F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -437,6 +483,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44A4C84504EDFB274AE047ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairyApp/Pods-DairyApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairyApp/Pods-DairyApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairyApp/Pods-DairyApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B9A944645C8EF75B25601E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairyApp-DairyAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		571BACFF9FA18D1E4F866D6F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6DFC07375124FE51215B2A35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairyAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB90ADC7F2816C3CECF730C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DairyApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1888DF1429F2FA36004ED046 /* Sources */ = {
@@ -632,6 +781,7 @@
 		};
 		1888DF4629F2FA3A004ED046 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDBEFDC77D4FA9C29206E081 /* Pods-DairyApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -659,6 +809,7 @@
 		};
 		1888DF4729F2FA3A004ED046 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D57D19FBDC2B9892C9EFB692 /* Pods-DairyApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -686,6 +837,7 @@
 		};
 		1888DF4929F2FA3A004ED046 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 730200DEB2B6D67FA522F07B /* Pods-DairyAppTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -706,6 +858,7 @@
 		};
 		1888DF4A29F2FA3A004ED046 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F007186DAF6695F359ADA3 /* Pods-DairyAppTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -726,6 +879,7 @@
 		};
 		1888DF4C29F2FA3A004ED046 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A5DC2C2EE16313BFC75A071 /* Pods-DairyApp-DairyAppUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -744,6 +898,7 @@
 		};
 		1888DF4D29F2FA3A004ED046 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C9B820C17FAEC3CAC850F3 /* Pods-DairyApp-DairyAppUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
