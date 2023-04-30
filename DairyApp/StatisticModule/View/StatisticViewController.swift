@@ -16,9 +16,11 @@ final class StatisticViewController: UIViewController {
     let coreDataManager = CoreDataManager()
     
     let segmentControl: UISegmentedControl = {
-        let segmentedControl = UISegmentedControl(items: ["День", "Неделя", "Месяц"])
+        let segmentedControl = UISegmentedControl(items: ["ДЕНЬ", "НЕДЕЛЯ", "МЕСЯЦ"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.selectedSegmentTintColor = UIColor(named: "selected2")
+        segmentedControl.tintColor = .white
         return segmentedControl
     }()
     
@@ -36,11 +38,16 @@ final class StatisticViewController: UIViewController {
         view.backgroundColor = UIColor(named: "background")
         view.addSubview(segmentControl)
         segmentControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
+        
+        
         NSLayoutConstraint.activate([
             segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            segmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            segmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            segmentControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
         createChart()
+        loadChartDataForCurrentSegment()
     }
     
 
@@ -54,36 +61,9 @@ final class StatisticViewController: UIViewController {
     func createChart() {
         //Create bar chart
         barChart = BarChartView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width))
-        barChart.backgroundColor = UIColor(named: "smallBackground")
-        barChart.gridBackgroundColor = UIColor(named: "smallBackground") ?? UIColor.systemBackground
+        barChart.backgroundColor = UIColor(named: "background")
+        barChart.gridBackgroundColor = UIColor(named: "background") ?? UIColor.systemBackground
         
-        
-        //Configure the axis
-        let xAxis = barChart.xAxis
-        let rightAxis = barChart.rightAxis
-        
-        //Configure legend
-        let legend = barChart.legend
-        
-        //Supply data
-        loadChartDataForCurrentSegment()
-        
-        xAxis.labelPosition = .bottom
-        xAxis.labelFont = UIFont.systemFont(ofSize: 10)
-        xAxis.drawGridLinesEnabled = false
-        xAxis.granularity = 0.5
-        xAxis.centerAxisLabelsEnabled = true
-        
-          
-        //Configure Right Axis
-        rightAxis.enabled = false
-          
-        //Configure Legend
-        legend.enabled = true
-        legend.horizontalAlignment = .center
-        legend.verticalAlignment = .top
-        legend.orientation = .horizontal
-        legend.drawInside = false
 
     
         view.addSubview(barChart)
@@ -95,6 +75,8 @@ final class StatisticViewController: UIViewController {
         barChart.drawBordersEnabled = false
         barChart.doubleTapToZoomEnabled = false
         barChart.drawGridBackgroundEnabled = true
+        barChart.leftAxis.axisMinimum = 0
+        barChart.rightAxis.axisMinimum = 0
     }
 
     func loadChartDataForCurrentSegment() {
@@ -105,13 +87,12 @@ final class StatisticViewController: UIViewController {
                 guard let self = self else {return}
                 switch result {
                 case .success(let notes):
-                    //self.settingsCurrentData(notes: notes)
                     
                     self.emotionalIndexValues = notes.compactMap {
-                        Double($0.emotionalIndex)
+                        Double($0.emotionalIndex).rounded()
                     }
                     self.physicalIndexValues = notes.compactMap {
-                        Double($0.physicalIndex)
+                        Double($0.physicalIndex).rounded()
                     }
                     self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
                 case .failure(let error):
@@ -122,11 +103,12 @@ final class StatisticViewController: UIViewController {
         case 1:
             coreDataManager.searchWeekdayNote { [weak self] result in
                 guard let self = self else {return}
+                
                 switch result {
                 case .success(let notes):
                     let averageArrays = self.averageValuesByDay(notes: notes)
-                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0)}
-                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0)}
+                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0).rounded()}
+                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0).rounded()}
                     
                     self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
                 case .failure(let error):
@@ -136,12 +118,13 @@ final class StatisticViewController: UIViewController {
         case 2:
             coreDataManager.searchMonthNote { [weak self] result in
                 guard let self = self else {return}
+                
                 switch result {
                 case .success(let notes):
                     
                     let averageArrays = self.averageValuesByDay(notes: notes)
-                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0)}
-                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0)}
+                    self.emotionalIndexValues = averageArrays.emotionalIndex.map{ Double($0).rounded()}
+                    self.physicalIndexValues = averageArrays.physicalIndex.map{ Double($0).rounded()}
                     
                     self.settingsCharts(emotionalIndexValues: emotionalIndexValues, physicalIndexValues: physicalIndexValues)
                     
@@ -163,12 +146,15 @@ final class StatisticViewController: UIViewController {
         let physicalEntries = physicalIndexValues.enumerated().map {
             BarChartDataEntry(x: Double($0.offset), y: $0.element)
         }
-        let emotionalSet = BarChartDataSet(entries: emotionalEntries, label: "Эмоциональное состояние")
+        let emotionalSet = BarChartDataSet(entries: emotionalEntries, label: "НАСТРОЕНИЕ")
         emotionalSet.colors = [NSUIColor(cgColor: UIColor(named: "selected")?.cgColor ?? UIColor.systemIndigo.cgColor)]
         emotionalSet.barBorderWidth = 0.45
-        let physicalSet = BarChartDataSet(entries: physicalEntries, label: "Физическое состояние")
+        emotionalSet.valueFont = UIFont.systemFont(ofSize: 13,weight: .light)
+        
+        let physicalSet = BarChartDataSet(entries: physicalEntries, label: "ЗДОРОВЬЕ")
         physicalSet.colors = [NSUIColor(cgColor: UIColor(named: "button2")?.cgColor ?? UIColor.systemPink.cgColor)]
         physicalSet.barBorderWidth = 0.45
+        physicalSet.valueFont = UIFont.systemFont(ofSize: 13,weight: .light)
         
         let groupSpace = 1.0
         let barSpace = 1.0
