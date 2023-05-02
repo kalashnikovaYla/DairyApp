@@ -12,9 +12,6 @@ final class DairyViewController: UIViewController {
 
     //MARK: - Property
     
-    let calendar = Calendar.current
-    
-    
     var presenter: DairyPresenterProtocol!
     
     lazy var collectionView: UICollectionView = {
@@ -54,6 +51,14 @@ final class DairyViewController: UIViewController {
         view.backgroundColor =  UIColor(named: "background")
         title = "Дневник"
         
+    
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .search,
+            target: self,
+            action: #selector(openCalendarView)
+        )
+        
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "button1")
         setupSubviews()
         
     }
@@ -77,6 +82,10 @@ final class DairyViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+    }
+    
+    @objc private func openCalendarView() {
+        
     }
 }
 
@@ -139,8 +148,11 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         if presenter?.data[indexPath.row].image != nil {
             return 550
+        } else if presenter?.data[indexPath.row].text?.count ?? 1 <= 10 {
+            return 100
         } else {
             return 300
         }
@@ -150,6 +162,7 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: - DairyViewProtocol
 
 extension DairyViewController: DairyViewProtocol {
+    
     func updateData() {
         tableView.reloadData()
     }
@@ -157,8 +170,6 @@ extension DairyViewController: DairyViewProtocol {
     func dataIsNotExist() {
         
     }
-    
-    
 }
 
 

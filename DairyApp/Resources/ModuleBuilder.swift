@@ -51,6 +51,7 @@ class ModuleBuilder: BuilderProtocol {
                                            coreDataManager: coreDataManager,
                                            fileManager: fileManager,
                                            dataObserver: dataObserver)
+        dataObserver.addObserver(observer: presenter)
         view.presenter = presenter
         return view
     }
@@ -63,7 +64,9 @@ class ModuleBuilder: BuilderProtocol {
 
 
 class DataObserver {
+    
     private var observers: [PresenterProtocol] = []
+    
     func addObserver(observer: PresenterProtocol) {
         observers.append(observer)
     }
