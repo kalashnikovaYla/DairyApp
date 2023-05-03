@@ -13,12 +13,14 @@ protocol PhotoDidSelect: AnyObject {
     func photoDidSelect(photoData: Data?)
 }
 
-class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+final class PhotoTableViewCell: UITableViewCell {
 
+    //MARK: - Property
+    
     static let identifier = "PhotoTableViewCell"
     weak var delegate: PhotoDidSelect?
     
-    private var photoImageView: UIImageView = {
+    var photoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -39,11 +41,24 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
 
     var selectedImage: UIImage?
     
+    
     //MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        settingsView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    //MARK: - Methods
+
+    func settingsView() {
         contentView.backgroundColor = UIColor(named: "smallBackground")
         contentView.addSubview(photoImageView)
         contentView.addSubview(addPhotoButton)
@@ -61,34 +76,11 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
         ])
                 
         addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
-
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     
-    //MARK: - Method
-    
-
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc private func addPhotoButtonTapped() {
         
-            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                selectedImage = pickedImage
-                photoImageView.image = pickedImage
-                
-                delegate?.photoDidSelect(photoData: pickedImage.pngData())
-                
-                
-            }
-            
-            picker.dismiss(animated: true, completion: nil)
-        }
-    
-    
-    @objc func addPhotoButtonTapped() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
@@ -96,7 +88,6 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
         
         //1 action
         actionSheet.addAction(UIAlertAction(title: "Сделать фото", style: .default, handler: { action in
-            
            
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 
@@ -114,29 +105,45 @@ class PhotoTableViewCell: UITableViewCell, UIImagePickerControllerDelegate & UIN
         
         //2 action
         actionSheet.addAction(UIAlertAction(title: "Выбрать из галереи", style: .default, handler: { action in
+            
             if PHPhotoLibrary.authorizationStatus() == .authorized{
-                
                 DispatchQueue.main.async {
                     imagePickerController.sourceType = .photoLibrary
-                    self.window?.rootViewController?.present(imagePickerController, animated: true, completion: nil)
+                    self.window?.rootViewController?.present(imagePickerController, animated: true)
                 }
-                
             }
+            
             if PHPhotoLibrary.authorizationStatus() == .notDetermined {
                 PHPhotoLibrary.requestAuthorization { status in
                     DispatchQueue.main.async {
                         imagePickerController.sourceType = .photoLibrary
-                        self.window?.rootViewController?.present(imagePickerController, animated: true, completion: nil)
+                        self.window?.rootViewController?.present(imagePickerController, animated: true)
                     }
                 }
             }
-            
-            
+        
         }))
         actionSheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         self.window?.rootViewController?.present(actionSheet, animated: true, completion: nil)
     }
 
+    override func prepareForReuse() {
+        photoImageView.image = nil 
+    }
 }
 
+//MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
 
+extension PhotoTableViewCell: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+            if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                selectedImage = pickedImage
+                photoImageView.image = pickedImage
+        
+                delegate?.photoDidSelect(photoData: pickedImage.pngData())
+            }
+            picker.dismiss(animated: true, completion: nil)
+        }
+}

@@ -15,9 +15,7 @@ protocol TextViewDidSelected: AnyObject {
 final class ContentTableViewCell: UITableViewCell {
     
     static let identifier = "ContentTableViewCell"
-    
     weak var delegate: TextViewDidSelected?
-    
     
     var textView: UITextView = {
         let textView = UITextView()
@@ -28,6 +26,8 @@ final class ContentTableViewCell: UITableViewCell {
         
         return textView
     }()
+    
+    //MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -50,6 +50,7 @@ final class ContentTableViewCell: UITableViewCell {
     
 }
 
+//MARK: - UITextViewDelegate
 
 extension ContentTableViewCell: UITextViewDelegate {
     
@@ -57,6 +58,5 @@ extension ContentTableViewCell: UITextViewDelegate {
         delegate?.textViewDidSelected(with: textView.text)
         return true
     }
-    
 }
 

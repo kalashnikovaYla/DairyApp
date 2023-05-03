@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 protocol NewNotePresenterProtocol: AnyObject {
     var emotionalTag: [String] {get}
     var physicalTag: [String] {get}
@@ -74,7 +72,7 @@ final class NewNotePresenter: NewNotePresenterProtocol {
     }
     
     func photoDidSelect(photoData: Data?) {
-        //temporaryModel.pathToSelectedPhoto = path
+        
         guard let imagePath = fileManager.saveImage(imageData: photoData) else { return }
         temporaryModel.pathToSelectedPhoto = imagePath
     }
@@ -92,6 +90,4 @@ final class NewNotePresenter: NewNotePresenterProtocol {
         dataObserver.notifyObservers()
         view?.clearField()
     }
-    
-   
 }

@@ -16,6 +16,7 @@ final class NewNoteViewController: UIViewController {
     private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
         tableView.register(ContentTableViewCell.self,
                            forCellReuseIdentifier: ContentTableViewCell.identifier)
         tableView.register(MoodTableViewCell.self,
@@ -61,8 +62,6 @@ final class NewNoteViewController: UIViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
         
-       
-        
     }
     
     //MARK: - Method
@@ -74,6 +73,7 @@ final class NewNoteViewController: UIViewController {
     @objc private func save() {
         tableView.endEditing(true)
         presenter.saveButtonDidTapped()
+        
     }
     
 }
@@ -288,8 +288,19 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
 }
 
+//MARK: - NewNoteViewProtocol
+
 extension NewNoteViewController: NewNoteViewProtocol {
+    
     func clearField() {
         
+        if let contentCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ContentTableViewCell {
+            contentCell.textView.text = nil
+        }
+        if let photoCell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? PhotoTableViewCell {
+            photoCell.photoImageView.image = nil
+        }
+        
+        tableView.reloadData()
     }
 }
