@@ -12,6 +12,8 @@ protocol DairyPresenterProtocol: AnyObject {
     var data: [NoteViewModel] {get}
     
     func cellBackground(index: Int) -> Bool
+    func dateIsSelected(date: Date?)
+    func showAllNoteButtonIsapped()
 }
 
 protocol DairyViewProtocol: AnyObject {
@@ -59,51 +61,15 @@ final class DairyPresenter: DairyPresenterProtocol, PresenterProtocol {
         getAllNote()
     }
     
+    //MARK: - Method
+    
     private func getAllNote() {
         coreDataManager.getAllNote { [weak self] result in
             
             guard let self = self else {return}
             switch result {
             case .success(let data):
-                let newViewModels = data.map { note in
-                    
-                   
-                    let image = self.fileManager.getImage(fileName: note.photoPath)
-                    let index = Int(note.emotionalIndex + note.physicalIndex)
-                    var emoji = ""
-                    
-                    switch index {
-                    case 0...4:
-                        emoji = "😞"
-                    case 5...8:
-                        emoji = "😔"
-                    case 9...11:
-                        emoji =  "😐"
-                    case 12...14:
-                        emoji =  "🙂"
-                    case 15...18:
-                        emoji =  "😊"
-                    case 19...20:
-                        emoji =  "😃"
-                    default:
-                        emoji = ""
-                    }
-                
-                    var tag: [String]? = []
-                    if let tagArray = note.tagArray {
-                        tag = try? NSKeyedUnarchiver.unarchiveObject(with: tagArray) as? [String]
-                    }
-                    
-                    var dateString = ""
-                    if let date = note.date {
-                        dateString = self.dateFormatter.string(from: date)
-                    }
-                    return NoteViewModel(text: note.text,
-                                         date: dateString,
-                                         smile: emoji,
-                                         image: image,
-                                         tag: tag ?? [])
-                }
+                let newViewModels = createViewModels(data: data)
                 self.data = newViewModels
                 view?.updateData()
                 
@@ -126,5 +92,76 @@ final class DairyPresenter: DairyPresenterProtocol, PresenterProtocol {
     
     func dataDidChange() {
         getAllNote()
+    }
+    
+    func showAllNoteButtonIsapped()  {
+        getAllNote()
+    }
+    
+    
+    func dateIsSelected(date: Date?) {
+        guard let date = date else {return}
+        
+        coreDataManager.searchDate(date: date) { [weak self] result in
+            
+            guard let self = self else {return}
+            
+            switch result {
+            case .success(let data):
+                if data.isEmpty {
+                    view?.dataIsNotExist()
+                } else {
+                    let newViewModels = self.createViewModels(data: data)
+                    self.data = newViewModels
+                    self.view?.updateData()
+                }
+                
+            case .failure(let error):
+                view?.dataIsNotExist()
+                print(error)
+            }
+        }
+    }
+    
+    private func createViewModels(data: [Note]) -> [NoteViewModel] {
+        let newViewModels = data.map { note in
+        
+            let image = self.fileManager.getImage(fileName: note.photoPath)
+            let index = Int(note.emotionalIndex + note.physicalIndex)
+            var emoji = ""
+            
+            switch index {
+            case 0...4:
+                emoji = "😞"
+            case 5...8:
+                emoji = "😔"
+            case 9...11:
+                emoji =  "😐"
+            case 12...14:
+                emoji =  "🙂"
+            case 15...18:
+                emoji =  "😊"
+            case 19...20:
+                emoji =  "😃"
+            default:
+                emoji = ""
+            }
+        
+            var tag: [String]? = []
+            if let tagArray = note.tagArray {
+                tag = try? NSKeyedUnarchiver.unarchiveObject(with: tagArray) as? [String]
+            }
+            
+            var dateString = ""
+            if let date = note.date {
+                dateString = self.dateFormatter.string(from: date)
+            }
+            return NoteViewModel(text: note.text,
+                                 date: dateString,
+                                 smile: emoji,
+                                 image: image,
+                                 tag: tag ?? [])
+        }
+        return newViewModels
     }
 }

@@ -41,7 +41,16 @@ final class DairyViewController: UIViewController {
         return tableView
     }()
     
-    
+    let label: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .label
+        label.textAlignment = .left
+        label.text = "Упс! Записи отсутствуют"
+        label.font = UIFont.systemFont(ofSize: 18, weight: .heavy)
+        label.isHidden = true
+        return label
+    }()
     
     //MARK: - Life cycle
     
@@ -68,10 +77,14 @@ final class DairyViewController: UIViewController {
     //MARK: - Method
     
     func setupSubviews() {
+        view.addSubview(label)
         view.addSubview(collectionView)
         view.addSubview(tableView)
             
         NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
@@ -85,7 +98,10 @@ final class DairyViewController: UIViewController {
     }
     
     @objc private func openCalendarView() {
-        
+        let calendarVC = SearchNoteViewController(presenter: presenter)
+        calendarVC.sheetPresentationController?.detents = [.medium()]
+        calendarVC.sheetPresentationController?.prefersGrabberVisible = true
+        present(calendarVC, animated: true)
     }
 }
 
@@ -130,7 +146,10 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DairyTableViewCell.identifier, for: indexPath) as? DairyTableViewCell else {return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DairyTableViewCell.identifier,
+                                                       for: indexPath) as? DairyTableViewCell
+        else {return UITableViewCell()}
+        
         cell.layer.cornerRadius = 18
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor(named: "button1")?.cgColor
@@ -164,11 +183,14 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
 extension DairyViewController: DairyViewProtocol {
     
     func updateData() {
+        tableView.isHidden = false
+        label.isHidden = true
         tableView.reloadData()
     }
     
     func dataIsNotExist() {
-        
+        tableView.isHidden = true
+        label.isHidden = false
     }
 }
 

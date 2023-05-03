@@ -33,9 +33,13 @@ class CoreDataManager {
     
     ///Search note use date
     public func searchDate(date: Date, completion: @escaping (Result<[Note], Error>) -> Void) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-        let predicate = NSPredicate(format: "date = %@", date as NSDate)
-        fetchRequest.predicate = predicate
+        
+        let startDate = Calendar.current.startOfDay(for: date)
+        guard let endDate = Calendar.current.date(byAdding: .day, value: 1, to: startDate) as? NSDate else {return}
+        
+        
+        let fetchRequest: NSFetchRequest<Note> = Note.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date < %@", startDate as NSDate, endDate as NSDate)
         
         do {
             let result = try context?.fetch(fetchRequest) as? [Note]
