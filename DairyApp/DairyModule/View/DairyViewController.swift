@@ -133,8 +133,6 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
         cell.weekdayLabel.text = presenter.weekDays[indexPath.row].name
         return cell
     }
-    
-    
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -146,8 +144,9 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DairyTableViewCell.identifier,
-                                                       for: indexPath) as? DairyTableViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: DairyTableViewCell.identifier,
+            for: indexPath) as? DairyTableViewCell
         else {return UITableViewCell()}
         
         cell.layer.cornerRadius = 18

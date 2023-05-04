@@ -43,7 +43,7 @@ final class SettingsViewController: UIViewController {
         ])
         
     }
-
+    
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -74,7 +74,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let image = UIImage(systemName: imageName)?.withTintColor(UIColor(named: "button1") ?? UIColor.label, renderingMode: .alwaysOriginal)
         configuration.image = image
-        
+    
         cell.contentConfiguration = configuration
         cell.backgroundColor = UIColor(named: "smallBackground")
         return cell
@@ -83,5 +83,25 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        case 0:
+            print("")
+            
+        case 1:
+            let biometricVC = BiometricViewController()
+            biometricVC.sheetPresentationController?.detents = [.medium()]
+            biometricVC.sheetPresentationController?.prefersGrabberVisible = true
+            present(biometricVC, animated: true)
+        case 2:
+            print("")
+            
+        default:
+            break
+        }
+    
+    }
+    
     
 }

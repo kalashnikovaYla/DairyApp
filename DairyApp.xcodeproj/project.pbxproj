@@ -13,6 +13,8 @@
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
 		182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */; };
 		182F339A29F4154C00F52EFE /* FileManagerForImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339929F4154B00F52EFE /* FileManagerForImage.swift */; };
+		1831D4E62A03FEF60042154B /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D4E52A03FEF60042154B /* AuthViewController.swift */; };
+		1831D4E82A04095D0042154B /* BiometricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1831D4E72A04095D0042154B /* BiometricViewController.swift */; };
 		18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18729E4029FD258B00887CEF /* TemporatyViewModel.swift */; };
 		187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7929FC1996008CC423 /* CoreDataManager.swift */; };
 		187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */; };
@@ -67,6 +69,8 @@
 		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
 		182F339729F3FD0500F52EFE /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		182F339929F4154B00F52EFE /* FileManagerForImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerForImage.swift; sourceTree = "<group>"; };
+		1831D4E52A03FEF60042154B /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		1831D4E72A04095D0042154B /* BiometricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricViewController.swift; sourceTree = "<group>"; };
 		18729E4029FD258B00887CEF /* TemporatyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporatyViewModel.swift; sourceTree = "<group>"; };
 		187C4D7929FC1996008CC423 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1831D4E42A03FECE0042154B /* AuthModule */ = {
+			isa = PBXGroup;
+			children = (
+				1831D4E52A03FEF60042154B /* AuthViewController.swift */,
+			);
+			name = AuthModule;
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		18729E3F29FD255800887CEF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF4E29F2FACA004ED046 /* Resources */,
+				1831D4E42A03FECE0042154B /* AuthModule */,
 				1888DF4F29F2FADD004ED046 /* MainTabBar */,
 				1888DF5229F2FB28004ED046 /* DairyModule */,
 				1888DF5629F2FB80004ED046 /* NewNoteModule */,
@@ -320,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */,
+				1831D4E72A04095D0042154B /* BiometricViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -597,6 +612,7 @@
 				18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */,
 				1888DF1C29F2FA36004ED046 /* AppDelegate.swift in Sources */,
 				18FB5A0C2A01756700EC184D /* SearchNoteViewController.swift in Sources */,
+				1831D4E82A04095D0042154B /* BiometricViewController.swift in Sources */,
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
 				187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */,
 				187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */,
@@ -618,6 +634,7 @@
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
 				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
 				187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */,
+				1831D4E62A03FEF60042154B /* AuthViewController.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
 				18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */,
 				187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */,

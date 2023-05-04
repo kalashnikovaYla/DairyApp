@@ -19,7 +19,6 @@ final class SearchNoteViewController: UIViewController {
         return button
     }()
     
-    
     private var calendarView: UICalendarView!
     
     

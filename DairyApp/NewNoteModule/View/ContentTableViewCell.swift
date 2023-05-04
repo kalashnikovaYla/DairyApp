@@ -14,6 +14,8 @@ protocol TextViewDidSelected: AnyObject {
 
 final class ContentTableViewCell: UITableViewCell {
     
+    //MARK: - Property
+    
     static let identifier = "ContentTableViewCell"
     weak var delegate: TextViewDidSelected?
     

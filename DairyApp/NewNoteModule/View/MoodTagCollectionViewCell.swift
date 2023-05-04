@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MoodTagCollectionViewCell: UICollectionViewCell {
+final class MoodTagCollectionViewCell: UICollectionViewCell {
+    
+    //MARK: - Property
     
     static let identifier = "MoodTagCollectionViewCell"
     
@@ -18,6 +20,7 @@ class MoodTagCollectionViewCell: UICollectionViewCell {
         return label
     }()
         
+    //MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +36,7 @@ class MoodTagCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         label.text = nil 

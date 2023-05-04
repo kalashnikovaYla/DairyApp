@@ -13,8 +13,10 @@ protocol MoodDidSelect: AnyObject {
 }
 
 
-class MoodTableViewCell: UITableViewCell {
+final class MoodTableViewCell: UITableViewCell {
 
+    //MARK: - Property
+    
     static let identifier = "MoodTableViewCell"
     
     weak var delegate: MoodDidSelect?
@@ -61,6 +63,14 @@ class MoodTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        settingsSubview()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func settingsSubview() {
         contentView.addSubview(sliderEmotional)
         contentView.addSubview(sliderPhysical)
         contentView.addSubview(emotionalValue)
@@ -87,11 +97,6 @@ class MoodTableViewCell: UITableViewCell {
         sliderEmotional.addTarget(self, action: #selector(didSelectEmotional), for: .touchUpInside)
         sliderPhysical.addTarget(self, action: #selector(didSelectPhysical), for: .touchUpInside)
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     @objc private func didSelectEmotional() {
         delegate?.moodDidSeletEmotionalValue(with: sliderEmotional.value)

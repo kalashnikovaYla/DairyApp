@@ -19,7 +19,6 @@ class TagTableViewCell: UITableViewCell {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        
         layout.itemSize = CGSize(width: 120, height: 30)
         layout.minimumInteritemSpacing = 2
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)

@@ -61,7 +61,7 @@ class DairyTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
-        contentView.backgroundColor = UIColor(named: "smallBackground")
+        contentView.backgroundColor = UIColor(named: "background")
         
         createCollectionView()
         
@@ -119,7 +119,7 @@ class DairyTableViewCell: UITableViewCell {
         self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor(named: "smallBackground")
+        collectionView.backgroundColor = UIColor(named: "background")
         collectionView.register(MoodTagCollectionViewCell.self,
                                 forCellWithReuseIdentifier: MoodTagCollectionViewCell.identifier)
         contentView.addSubview(collectionView)
@@ -134,14 +134,12 @@ class DairyTableViewCell: UITableViewCell {
 extension DairyTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return tags?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MoodTagCollectionViewCell.identifier, for: indexPath) as! MoodTagCollectionViewCell
-        
         
         cell.label.text = tags?[indexPath.row] ?? "" 
         cell.backgroundColor = UIColor(named: "tagCell")
