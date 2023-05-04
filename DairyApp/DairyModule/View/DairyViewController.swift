@@ -69,9 +69,8 @@ final class DairyViewController: UIViewController {
         
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "button1")
         setupSubviews()
-        
     }
-        
+    
     
     
     //MARK: - Method

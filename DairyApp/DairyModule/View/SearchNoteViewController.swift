@@ -46,6 +46,7 @@ final class SearchNoteViewController: UIViewController {
 
     private func createViews() {
         calendarView = UICalendarView()
+        calendarView.backgroundColor = UIColor(named: "smallBackground")
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         calendarView.calendar = .current
         calendarView.locale = .current

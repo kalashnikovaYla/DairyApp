@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Для авторизации в приложении используется сканирование лица</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Разрешить приложению доступ к галерее?</string>
 	<key>NSCameraUsageDescription</key>

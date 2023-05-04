@@ -10,6 +10,8 @@ import LocalAuthentication
 
 final class AuthViewController: UIViewController {
 
+    var completion: ((Bool) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(named: "background")
@@ -30,7 +32,9 @@ final class AuthViewController: UIViewController {
                     
                     // Biometric authentication successful
                     DispatchQueue.main.async {
-                        self.dismiss(animated: true)
+                        self.dismiss(animated: true) {
+                            self.completion?(true)
+                        }
                     }
                 } else {
                     // Biometric authentication failed

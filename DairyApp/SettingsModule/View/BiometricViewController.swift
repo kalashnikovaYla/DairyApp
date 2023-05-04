@@ -12,7 +12,7 @@ final class BiometricViewController: UIViewController {
     //MARK: - Property
     
     var titleText = "Face ID"
-    var biometric: Bool = false
+    var biometric: Bool!
     
     private var titleLabel: UILabel = {
         let label = UILabel()
@@ -50,7 +50,6 @@ final class BiometricViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = UIColor(named: "selected")
-        button.setTitle("Использовать Face ID", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +62,8 @@ final class BiometricViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        biometric = UserDefaults.standard.bool(forKey: "useBiometricAuthentication")
+        button.setTitle(!biometric ? "Использовать Face ID" : "Не использовать Face ID", for: .normal)
         settingsSubviews()
     }
     
@@ -102,6 +102,7 @@ final class BiometricViewController: UIViewController {
 
     @objc private func biometricBattonWasTapped() {
         UserDefaults.standard.set(!biometric, forKey: "useBiometricAuthentication")
+        dismiss(animated: true)
     }
 
     

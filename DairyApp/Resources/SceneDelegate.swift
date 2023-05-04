@@ -17,7 +17,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = MainTabBarController()
+        
+        let mainTabBarController = MainTabBarController()
+        let bool = UserDefaults.standard.bool(forKey: "useBiometricAuthentication")
+        if bool {
+            let authVC = AuthViewController()
+            authVC.completion = { success in
+                if success {
+                    self.window?.rootViewController = mainTabBarController
+                }
+            }
+            window?.rootViewController = authVC
+        } else {
+            window?.rootViewController = mainTabBarController
+        }
+        
+       
         window?.makeKeyAndVisible()
         window?.backgroundColor = .clear
     }
