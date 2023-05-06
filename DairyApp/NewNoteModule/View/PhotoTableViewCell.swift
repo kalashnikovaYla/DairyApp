@@ -140,7 +140,7 @@ extension PhotoTableViewCell: UIImagePickerControllerDelegate & UINavigationCont
         
             if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 selectedImage = pickedImage
-                photoImageView.image = pickedImage.fixOrientation()
+                photoImageView.image = pickedImage
         
                 delegate?.photoDidSelect(photoData: pickedImage.jpegData(compressionQuality: 0.8))
             }
@@ -148,57 +148,3 @@ extension PhotoTableViewCell: UIImagePickerControllerDelegate & UINavigationCont
         }
 }
 
-extension UIImage {
-    func fixOrientation() -> UIImage {
-        if self.imageOrientation == UIImage.Orientation.up {
-            return self
-        }
-
-        var transform: CGAffineTransform = CGAffineTransform.identity
-
-        switch self.imageOrientation {
-        case UIImage.Orientation.down, UIImage.Orientation.downMirrored:
-            transform = transform.translatedBy(x: self.size.width, y: self.size.height)
-            transform = transform.rotated(by: CGFloat(Double.pi))
-        case UIImage.Orientation.left, UIImage.Orientation.leftMirrored:
-            transform = transform.translatedBy(x: self.size.width, y: 0)
-            transform = transform.rotated(by: CGFloat(Double.pi / 2))
-        case UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
-            transform = transform.translatedBy(x: 0, y: self.size.height)
-            transform = transform.rotated(by: CGFloat(-Double.pi / 2))
-        default:
-            break
-        }
-
-        switch self.imageOrientation {
-        case UIImage.Orientation.upMirrored, UIImage.Orientation.downMirrored:
-            transform = transform.translatedBy(x: self.size.width, y: 0)
-            transform = transform.scaledBy(x: -1, y: 1)
-        case UIImage.Orientation.leftMirrored, UIImage.Orientation.rightMirrored:
-            transform = transform.translatedBy(x: self.size.height, y: 0)
-            transform = transform.scaledBy(x: -1, y: 1)
-        default:
-            break
-        }
-
-        let ctx: CGContext = CGContext(data: nil, width: Int(self.size.width), height: Int(self.size.height),
-                                        bitsPerComponent: self.cgImage!.bitsPerComponent, bytesPerRow: 0,
-                                        space: self.cgImage!.colorSpace!,
-                                        bitmapInfo: self.cgImage!.bitmapInfo.rawValue)!
-
-        ctx.concatenate(transform)
-
-        switch self.imageOrientation {
-        case UIImage.Orientation.left, UIImage.Orientation.leftMirrored, UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
-            ctx.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.height, height: self.size.width))
-        default:
-            ctx.draw(self.cgImage!, in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
-            break
-        }
-
-        let cgImage: CGImage = ctx.makeImage()!
-        let fixedImage: UIImage = UIImage(cgImage: cgImage)
-
-        return fixedImage
-    }
-}

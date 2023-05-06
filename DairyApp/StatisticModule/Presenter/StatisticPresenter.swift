@@ -105,6 +105,7 @@ final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
     }
     
     func averageValuesByDay(notes: [Note]) -> (emotionalIndex: [Float], physicalIndex: [Float]) {
+        
         let calendar = Calendar.current
         
         let groups = Dictionary(grouping: notes) { note -> Date in
@@ -116,10 +117,39 @@ final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
             let values = notes.map { $0.emotionalIndex }
             return values.reduce(0, +) / Float(values.count)
         }.values.sorted()
+        
         let physicalIndex = groups.mapValues { notes -> Float in
             let values = notes.map { $0.physicalIndex }
             return values.reduce(0, +) / Float(values.count)
         }.values.sorted()
         return (emotionalIndex, physicalIndex)
     }
+    
+    /*
+     func averageValuesByDay(notes: [Note]) -> (emotionalIndex: [(date: Date, value: Float)], physicalIndex: [(date: Date, value: Float)]) {
+
+         let calendar = Calendar.current
+
+         let groups = Dictionary(grouping: notes) { note -> Date in
+             let components = calendar.dateComponents([.year, .month, .day], from: note.date ?? Date())
+             return calendar.date(from: components)!
+         }
+
+         let emotionalIndex = groups.map { (key, notes) -> (date: Date, value: Float) in
+             let values = notes.map { $0.emotionalIndex }
+             let average = values.reduce(0, +) / Float(values.count)
+             return (key, average)
+         }.sorted { $0.date < $1.date }
+
+         let physicalIndex = groups.map { (key, notes) -> (date: Date, value: Float) in
+             let values = notes.map { $0.physicalIndex }
+             let average = values.reduce(0, +) / Float(values.count)
+             return (key, average)
+         }.sorted { $0.date < $1.date }
+
+         return (emotionalIndex, physicalIndex)
+     }
+     */
+    
+
 }

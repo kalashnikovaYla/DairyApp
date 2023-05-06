@@ -23,44 +23,14 @@ final class StatisticViewController: UIViewController {
         return segmentedControl
     }()
     
-    var barChart: BarChartView!
-    
-    
-    //MARK: - Life cycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "Статистика"
-        view.backgroundColor = UIColor(named: "background")
-        view.addSubview(segmentControl)
-        segmentControl.addTarget(self, action: #selector(segmentedControlChanged), for: .valueChanged)
-        
-        
-        NSLayoutConstraint.activate([
-            segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            segmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            segmentControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            segmentControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
-        ])
-        createChart()
-        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
-        
-    }
-    
-
-    //MARK: - Methods
-    
-    @objc func segmentedControlChanged() {
-        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
-    }
-    
-    
-    func createChart() {
-        barChart = BarChartView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.width))
+    lazy var barChart: BarChartView = {
+        let barChart = BarChartView(frame: CGRect(x: 0,
+                                                  y: 0,
+                                                  width: view.bounds.width,
+                                                  height: view.bounds.width)
+        )
         barChart.backgroundColor = UIColor(named: "background")
         barChart.gridBackgroundColor = UIColor(named: "background") ?? UIColor.systemBackground
-        
         barChart.animate(yAxisDuration: 2.0)
         barChart.pinchZoomEnabled = false
         barChart.drawBarShadowEnabled = false
@@ -69,15 +39,61 @@ final class StatisticViewController: UIViewController {
         barChart.drawGridBackgroundEnabled = true
         barChart.leftAxis.axisMinimum = 0
         barChart.rightAxis.axisMinimum = 0
-        
-        view.addSubview(barChart)
-        barChart.center = view.center
-    }
+        barChart.translatesAutoresizingMaskIntoConstraints = false
+        return barChart
+    }()
+    
+    
+    //MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
+        settingsView()
+        
+        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
+    }
+    
+
+    //MARK: - Methods
+    
+    @objc private func segmentedControlChanged() {
+        presenter?.loadingView(withIndex: segmentControl.selectedSegmentIndex)
+    }
+    
+    private func settingsView() {
+        title = "Статистика"
+        view.backgroundColor = UIColor(named: "background")
+        view.addSubview(segmentControl)
+        view.addSubview(barChart)
+        
+        segmentControl.addTarget(self,
+                                 action: #selector(segmentedControlChanged),
+                                 for: .valueChanged)
+        createConstraint()
+    }
+    
+    private func createConstraint() {
+        
+        NSLayoutConstraint.activate([
+            segmentControl.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            segmentControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            segmentControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            segmentControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
+            barChart.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 30),
+            barChart.heightAnchor.constraint(equalToConstant: 350),
+            barChart.widthAnchor.constraint(equalToConstant: 350),
+            barChart.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
 }
 
-//MARK: - StatisticViewProtocol
 
+
+
+
+//MARK: - StatisticViewProtocol
 extension StatisticViewController: StatisticViewProtocol {
     
     func settingsCharts() {
@@ -88,12 +104,15 @@ extension StatisticViewController: StatisticViewProtocol {
         let physicalEntries = presenter.physicalIndexValues.enumerated().map {
             BarChartDataEntry(x: Double($0.offset), y: $0.element)
         }
+        
         let emotionalSet = BarChartDataSet(entries: emotionalEntries, label: "НАСТРОЕНИЕ")
         emotionalSet.colors = [NSUIColor(cgColor: UIColor(named: "selected")?.cgColor ?? UIColor.systemIndigo.cgColor)]
+        emotionalSet.valueFormatter = IntegerValueFormatter()
         emotionalSet.barBorderWidth = 0.45
         emotionalSet.valueFont = UIFont.systemFont(ofSize: 13,weight: .light)
         
         let physicalSet = BarChartDataSet(entries: physicalEntries, label: "ЗДОРОВЬЕ")
+        physicalSet.valueFormatter = IntegerValueFormatter()
         physicalSet.colors = [NSUIColor(cgColor: UIColor(named: "button2")?.cgColor ?? UIColor.systemPink.cgColor)]
         physicalSet.barBorderWidth = 0.45
         physicalSet.valueFont = UIFont.systemFont(ofSize: 13,weight: .light)
