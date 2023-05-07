@@ -10,7 +10,6 @@ import UIKit
 final class SearchNoteViewController: UIViewController {
    
     var presenter: DiaryPresenterProtocol
-   
     private var calendarView: UICalendarView!
     
     
@@ -47,20 +46,15 @@ final class SearchNoteViewController: UIViewController {
         calendarView.tintColor = UIColor(named: "selected")
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
+        
         view.addSubview(calendarView)
       
         NSLayoutConstraint.activate([
-            
             calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
-    }
-   
-    @objc private func showAllNoteButtonTapped() {
-        presenter.showAllNoteButtonIsapped()
-        dismiss(animated: true)
     }
 
 }

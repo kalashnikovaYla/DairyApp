@@ -69,7 +69,7 @@ final class DairyViewController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "button1")
         setupSubviews()
     }
-    
+
     
     
     //MARK: - Methods
@@ -172,6 +172,24 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
             return 300
         }
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] _, _, _ in
+            self?.tableView.beginUpdates()
+            self?.presenter.deleteButtonWasTapped(index: indexPath.row)
+            self?.tableView.deleteRows(at: [indexPath], with: .automatic)
+            self?.tableView.endUpdates()
+        }
+        
+        deleteAction.image = UIImage(systemName: "trash")
+        deleteAction.backgroundColor = UIColor(named: "selected")
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+
 }
 
 //MARK: - DairyViewProtocol
@@ -189,5 +207,7 @@ extension DairyViewController: DairyViewProtocol {
         label.isHidden = false
     }
 }
+
+
 
 

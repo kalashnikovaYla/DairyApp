@@ -38,6 +38,7 @@
 		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
 		18A96BD02A07EF2800806531 /* AboutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A96BCF2A07EF2800806531 /* AboutCollectionViewCell.swift */; };
+		18A96BD22A08041500806531 /* DataObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A96BD12A08041500806531 /* DataObserver.swift */; };
 		18AAC92F29F982BF00F4D4D8 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */; };
 		18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */; };
 		18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */; };
@@ -102,6 +103,7 @@
 		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		18A96BCF2A07EF2800806531 /* AboutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCollectionViewCell.swift; sourceTree = "<group>"; };
+		18A96BD12A08041500806531 /* DataObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataObserver.swift; sourceTree = "<group>"; };
 		18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
 		18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
 		18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiEnum.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				182F339929F4154B00F52EFE /* FileManagerForImage.swift */,
 				187C4D7929FC1996008CC423 /* CoreDataManager.swift */,
 				187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */,
+				18A96BD12A08041500806531 /* DataObserver.swift */,
 			);
 			path = ServiceLayer;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */,
 				187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */,
 				187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */,
+				18A96BD22A08041500806531 /* DataObserver.swift in Sources */,
 				18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */,
 				1888DF1E29F2FA36004ED046 /* SceneDelegate.swift in Sources */,
 				1888DF5529F2FB55004ED046 /* DairyViewController.swift in Sources */,

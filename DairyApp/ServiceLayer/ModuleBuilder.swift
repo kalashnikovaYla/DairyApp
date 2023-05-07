@@ -14,7 +14,7 @@ protocol BuilderProtocol {
     func createSettingsModule() -> UIViewController
 }
 
-class ModuleBuilder: BuilderProtocol {
+final class ModuleBuilder: BuilderProtocol {
     
     let dataObserver = DataObserver()
     
@@ -63,21 +63,3 @@ class ModuleBuilder: BuilderProtocol {
 }
 
 
-class DataObserver {
-    
-    private var observers: [PresenterProtocol] = []
-    
-    func addObserver(observer: PresenterProtocol) {
-        observers.append(observer)
-    }
-    func notifyObservers() {
-        observers.forEach {
-            $0.dataDidChange()
-        }
-    }
-}
-
-protocol PresenterProtocol {
-    var dataObserver: DataObserver {get}
-    func dataDidChange()
-}

@@ -14,6 +14,7 @@ protocol DiaryPresenterProtocol: AnyObject {
     func cellBackground(index: Int) -> Bool
     func dateIsSelected(date: Date?)
     func showAllNoteButtonIsapped()
+    func deleteButtonWasTapped(index: Int)
 }
 
 protocol DairyViewProtocol: AnyObject {
@@ -30,6 +31,7 @@ final class DiaryPresenter: DiaryPresenterProtocol, PresenterProtocol {
     let fileManager: FileManagerForImage
     var dataObserver: DataObserver
     
+    var rawData: [Note] = []
     var data: [NoteViewModel] = []
     
     var weekDays: [WeekDay] = [
@@ -69,6 +71,8 @@ final class DiaryPresenter: DiaryPresenterProtocol, PresenterProtocol {
             guard let self = self else {return}
             switch result {
             case .success(let data):
+                self.rawData = data
+                
                 let newViewModels = createViewModels(data: data)
                 self.data = newViewModels
                 view?.updateData()
@@ -163,5 +167,11 @@ final class DiaryPresenter: DiaryPresenterProtocol, PresenterProtocol {
                                  tag: tag ?? [])
         }
         return newViewModels
+    }
+    
+    func deleteButtonWasTapped(index: Int) {
+        data.remove(at: index)
+        coreDataManager.deleteNote(note: rawData[index])
+        
     }
 }
