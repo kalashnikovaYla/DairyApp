@@ -147,6 +147,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18187DED2A07E16F00DD8D6D /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				182F339929F4154B00F52EFE /* FileManagerForImage.swift */,
+				187C4D7929FC1996008CC423 /* CoreDataManager.swift */,
+				187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
 		1831D4E42A03FECE0042154B /* AuthModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				1888DF4E29F2FACA004ED046 /* Resources */,
+				18187DED2A07E16F00DD8D6D /* ServiceLayer */,
 				1831D4E42A03FECE0042154B /* AuthModule */,
 				18FFB9C12A06CE260088C646 /* Onboarding */,
 				1888DF4F29F2FADD004ED046 /* MainTabBar */,
@@ -251,9 +262,6 @@
 			children = (
 				1888DF1B29F2FA36004ED046 /* AppDelegate.swift */,
 				1888DF1D29F2FA36004ED046 /* SceneDelegate.swift */,
-				182F339929F4154B00F52EFE /* FileManagerForImage.swift */,
-				187C4D7929FC1996008CC423 /* CoreDataManager.swift */,
-				187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */,
 				1888DF2729F2FA3A004ED046 /* Assets.xcassets */,
 				1888DF2929F2FA3A004ED046 /* LaunchScreen.storyboard */,
 			);
