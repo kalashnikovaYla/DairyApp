@@ -87,7 +87,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         switch indexPath.row {
         case 0:
             
-           print("")
+            let aboutVC = AboutAppViewController()
+            aboutVC.sheetPresentationController?.detents = [.medium()]
+            aboutVC.sheetPresentationController?.prefersGrabberVisible = true
+            present(aboutVC, animated: true)
             
         case 1:
             let biometricVC = BiometricViewController()

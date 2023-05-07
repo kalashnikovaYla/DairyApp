@@ -21,11 +21,6 @@ final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
     
     var dataObserver: DataObserver
     
-    func dataDidChange() {
-        loadingView(withIndex: 0)
-    }
-    
-    
     //MARK: - Property
     
     weak var view: StatisticViewProtocol?
@@ -44,6 +39,9 @@ final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
         self.dataObserver = dataObserver
     }
     
+    func dataDidChange() {
+        loadingView(withIndex: 0)
+    }
     
     func loadingView(withIndex index: Int) {
         switch index {
@@ -124,32 +122,5 @@ final class StatisticPresenter: StatisticPresenterProtocol, PresenterProtocol {
         }.values.sorted()
         return (emotionalIndex, physicalIndex)
     }
-    
-    /*
-     func averageValuesByDay(notes: [Note]) -> (emotionalIndex: [(date: Date, value: Float)], physicalIndex: [(date: Date, value: Float)]) {
-
-         let calendar = Calendar.current
-
-         let groups = Dictionary(grouping: notes) { note -> Date in
-             let components = calendar.dateComponents([.year, .month, .day], from: note.date ?? Date())
-             return calendar.date(from: components)!
-         }
-
-         let emotionalIndex = groups.map { (key, notes) -> (date: Date, value: Float) in
-             let values = notes.map { $0.emotionalIndex }
-             let average = values.reduce(0, +) / Float(values.count)
-             return (key, average)
-         }.sorted { $0.date < $1.date }
-
-         let physicalIndex = groups.map { (key, notes) -> (date: Date, value: Float) in
-             let values = notes.map { $0.physicalIndex }
-             let average = values.reduce(0, +) / Float(values.count)
-             return (key, average)
-         }.sorted { $0.date < $1.date }
-
-         return (emotionalIndex, physicalIndex)
-     }
-     */
-    
 
 }

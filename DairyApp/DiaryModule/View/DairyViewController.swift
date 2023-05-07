@@ -72,7 +72,6 @@ final class DairyViewController: UIViewController {
     
     
     
-    
     //MARK: - Methods
     
     func setupSubviews() {

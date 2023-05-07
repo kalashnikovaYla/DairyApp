@@ -37,6 +37,7 @@
 		1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */; };
 		1888DF5D29F2FC35004ED046 /* StatisticViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */; };
 		1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */; };
+		18A96BD02A07EF2800806531 /* AboutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A96BCF2A07EF2800806531 /* AboutCollectionViewCell.swift */; };
 		18AAC92F29F982BF00F4D4D8 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */; };
 		18AAC93129F9859000F4D4D8 /* DairyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */; };
 		18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */; };
@@ -100,6 +101,7 @@
 		1888DF5829F2FBB0004ED046 /* NewNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNoteViewController.swift; sourceTree = "<group>"; };
 		1888DF5C29F2FC35004ED046 /* StatisticViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticViewController.swift; sourceTree = "<group>"; };
 		1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		18A96BCF2A07EF2800806531 /* AboutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCollectionViewCell.swift; sourceTree = "<group>"; };
 		18AAC92E29F982BF00F4D4D8 /* WeekDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
 		18AAC93029F9859000F4D4D8 /* DairyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyTableViewCell.swift; sourceTree = "<group>"; };
 		18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiEnum.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */,
 				1831D4E72A04095D0042154B /* BiometricViewController.swift */,
 				18187DEB2A07D74000DD8D6D /* AboutAppViewController.swift */,
+				18A96BCF2A07EF2800806531 /* AboutCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
 				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
 				187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */,
+				18A96BD02A07EF2800806531 /* AboutCollectionViewCell.swift in Sources */,
 				1831D4E62A03FEF60042154B /* AuthViewController.swift in Sources */,
 				182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */,
 				18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */,

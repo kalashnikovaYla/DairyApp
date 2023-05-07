@@ -81,7 +81,7 @@ final class StatisticViewController: UIViewController {
             segmentControl.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             segmentControl.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
-            barChart.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 30),
+            barChart.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 40),
             barChart.heightAnchor.constraint(equalToConstant: 350),
             barChart.widthAnchor.constraint(equalToConstant: 350),
             barChart.centerXAnchor.constraint(equalTo: view.centerXAnchor)

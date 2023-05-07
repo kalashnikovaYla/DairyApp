@@ -10,15 +10,7 @@ import UIKit
 final class SearchNoteViewController: UIViewController {
    
     var presenter: DiaryPresenterProtocol
-    
-    private var button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Показать все записи", for: .normal)
-        button.setTitleColor(UIColor(named: "selected"), for: .normal)
-        return button
-    }()
-    
+   
     private var calendarView: UICalendarView!
     
     
@@ -38,11 +30,11 @@ final class SearchNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         createViews()
         view.backgroundColor = UIColor(named: "background")
-        button.addTarget(self, action: #selector(showAllNoteButtonTapped), for: .touchUpInside)
+        
     }
-    
 
     private func createViews() {
         calendarView = UICalendarView()
@@ -56,14 +48,10 @@ final class SearchNoteViewController: UIViewController {
         let dateSelection = UICalendarSelectionSingleDate(delegate: self)
         calendarView.selectionBehavior = dateSelection
         view.addSubview(calendarView)
-        
-        view.addSubview(button)
-        
+      
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
-            calendarView.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 10),
+            calendarView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
