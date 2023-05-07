@@ -79,7 +79,6 @@ final class NewNotePresenter: NewNotePresenterProtocol {
     
     func saveButtonDidTapped() {
         temporaryModel.tag = Array(selectedTagsEmotional.union(selectedTagsPhysical))
-        print(temporaryModel)
         
         coreDataManager.createNewNote(text: temporaryModel.text,
                                       date: Date(),

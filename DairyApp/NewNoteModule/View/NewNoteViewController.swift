@@ -32,21 +32,34 @@ final class NewNoteViewController: UIViewController {
     //MARK: - Life cycle
     
     override func viewDidLoad() {
-        
+        settingsSubview()
+    }
+    
+    
+    //MARK: - Method
+    
+    @objc private func cancel() {
+        clearField()
+    }
+    
+    @objc private func save() {
+        tableView.endEditing(true)
+        presenter.saveButtonDidTapped()
+    }
+    
+    private func settingsSubview() {
         view.backgroundColor = UIColor(named: "background")
         title = "Новая запись"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .cancel,
-            target: self,
-            action: #selector(cancel)
-        )
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Очистить",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(cancel))
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(
-            barButtonSystemItem: .save,
-            target: self,
-            action: #selector(save)
-        )
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(save))
         
         navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "button1")
         navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "button1")
@@ -61,21 +74,7 @@ final class NewNoteViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
-        
     }
-    
-    //MARK: - Method
-    
-    @objc private func cancel() {
-        //
-    }
-    
-    @objc private func save() {
-        tableView.endEditing(true)
-        presenter.saveButtonDidTapped()
-        
-    }
-    
 }
 
 //MARK: - UITableViewDelegate, UITableViewDataSource
@@ -175,7 +174,6 @@ extension NewNoteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
     }
-   
 }
 
 
@@ -199,7 +197,6 @@ extension NewNoteViewController: TextViewDidSelected, MoodDidSelect, PhotoDidSel
     func photoDidSelect(photoData: Data?) {
         presenter.photoDidSelect(photoData: photoData)
     }
-    
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -260,7 +257,6 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
             }
             
         case 1:
-            
             if !(presenter.selectedTagsPhysical.contains(text)) {
                 presenter.selectedTagsPhysical.insert(text)
                 cell.backgroundColor = UIColor(named: "selected")
@@ -268,7 +264,6 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
                 presenter.selectedTagsPhysical.remove(text)
                 cell.backgroundColor = UIColor(named: "tagCell")
             }
-            
         default:
             break
         }
@@ -276,9 +271,14 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath)
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: "headerView", for: indexPath
+        )
            
-           let label = UILabel(frame: CGRect(x: 16, y: 0, width: headerView.frame.width - 16, height: headerView.frame.height))
+           let label = UILabel(frame: CGRect(x: 16, y: 0,
+                                             width: headerView.frame.width - 16,
+                                             height: headerView.frame.height))
            label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
            label.textColor = .label
            label.text = (indexPath.section == 0 ? "Настроение" : "Здоровье")
@@ -293,14 +293,12 @@ extension NewNoteViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension NewNoteViewController: NewNoteViewProtocol {
     
     func clearField() {
-        
         if let contentCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? ContentTableViewCell {
             contentCell.textView.text = nil
         }
         if let photoCell = tableView.cellForRow(at: IndexPath(row: 0, section: 3)) as? PhotoTableViewCell {
             photoCell.photoImageView.image = nil
         }
-        
         tableView.reloadData()
     }
 }

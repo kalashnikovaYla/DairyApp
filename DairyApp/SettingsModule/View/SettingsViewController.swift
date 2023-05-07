@@ -43,7 +43,6 @@ final class SettingsViewController: UIViewController {
         ])
         
     }
-    
 }
 
 //MARK: - UITableViewDataSource, UITableViewDelegate
@@ -103,6 +102,4 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
     
     }
-    
-    
 }

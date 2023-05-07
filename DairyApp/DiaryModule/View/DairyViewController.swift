@@ -148,8 +148,8 @@ extension DairyViewController: UITableViewDelegate, UITableViewDataSource {
         else {return UITableViewCell()}
         
         cell.layer.cornerRadius = 18
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor(named: "button1")?.cgColor
+        cell.layer.borderWidth = 0.7
+        cell.layer.borderColor = UIColor(named: "selected")?.cgColor
         cell.clipsToBounds = true
         
         cell.dateLabel.text = presenter?.data[indexPath.row].date
