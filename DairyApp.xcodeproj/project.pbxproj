@@ -43,6 +43,7 @@
 		18D9CFDA29F6CEDD0052321C /* MoodTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */; };
 		18FB5A0C2A01756700EC184D /* SearchNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FB5A0B2A01756700EC184D /* SearchNoteViewController.swift */; };
 		18FFB9BF2A06C3790088C646 /* IntegerValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFB9BE2A06C3790088C646 /* IntegerValueFormatter.swift */; };
+		18FFB9C32A06CED00088C646 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FFB9C22A06CED00088C646 /* IntroViewController.swift */; };
 		4EDA8B49DF260A29BDBA490B /* Pods_DairyApp_DairyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7859DB7289CD0CFC939EB4B1 /* Pods_DairyApp_DairyAppUITests.framework */; };
 		86A02E38AA98B12F76B70DAF /* Pods_DairyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E3C91D46DE58A41AB6B47E1 /* Pods_DairyApp.framework */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,7 @@
 		18D9CFD929F6CEDD0052321C /* MoodTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		18FB5A0B2A01756700EC184D /* SearchNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchNoteViewController.swift; sourceTree = "<group>"; };
 		18FFB9BE2A06C3790088C646 /* IntegerValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerValueFormatter.swift; sourceTree = "<group>"; };
+		18FFB9C22A06CED00088C646 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		1A5DC2C2EE16313BFC75A071 /* Pods-DairyApp-DairyAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp-DairyAppUITests.debug.xcconfig"; path = "Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		43C9B820C17FAEC3CAC850F3 /* Pods-DairyApp-DairyAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DairyApp-DairyAppUITests.release.xcconfig"; path = "Target Support Files/Pods-DairyApp-DairyAppUITests/Pods-DairyApp-DairyAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4E3C91D46DE58A41AB6B47E1 /* Pods_DairyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DairyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,6 +217,7 @@
 				1831D4E42A03FECE0042154B /* AuthModule */,
 				1888DF4F29F2FADD004ED046 /* MainTabBar */,
 				1888DF5229F2FB28004ED046 /* DairyModule */,
+				18FFB9C12A06CE260088C646 /* Onboarding */,
 				1888DF5629F2FB80004ED046 /* NewNoteModule */,
 				1888DF5A29F2FBCC004ED046 /* StatisticModule */,
 				1888DF5E29F2FC59004ED046 /* SettingsModule */,
@@ -349,6 +352,14 @@
 				18AAC93229F98C8900F4D4D8 /* EmojiEnum.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		18FFB9C12A06CE260088C646 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				18FFB9C22A06CED00088C646 /* IntroViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		E674167C5B8A4BC0EBB6E03C /* Frameworks */ = {
@@ -633,6 +644,7 @@
 				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,
 				18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
+				18FFB9C32A06CED00088C646 /* IntroViewController.swift in Sources */,
 				18FFB9BF2A06C3790088C646 /* IntegerValueFormatter.swift in Sources */,
 				187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */,
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,

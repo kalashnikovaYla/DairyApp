@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CoreData
 
 final class DairyViewController: UIViewController {
 
@@ -16,7 +15,7 @@ final class DairyViewController: UIViewController {
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        
+
         let width = (view.bounds.width - 4 * 8)/7
         layout.itemSize = CGSize(width: width, height: 40)
         layout.minimumInteritemSpacing = 4
@@ -51,7 +50,7 @@ final class DairyViewController: UIViewController {
         label.isHidden = true
         return label
     }()
-    
+   
     //MARK: - Life cycle
     
     override func viewDidLoad() {
@@ -73,7 +72,8 @@ final class DairyViewController: UIViewController {
     
     
     
-    //MARK: - Method
+    
+    //MARK: - Methods
     
     func setupSubviews() {
         view.addSubview(label)
@@ -117,6 +117,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.weekDays.count
     }
+    
       
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -126,9 +127,7 @@ extension DairyViewController:  UICollectionViewDelegateFlowLayout, UICollection
         else {return UICollectionViewCell()}
         
         let colorString = presenter.cellBackground(index: indexPath.row) ? "selected": "tagCell"
-        
         cell.backgroundColor = UIColor(named: colorString)
-        
         cell.weekdayLabel.text = presenter.weekDays[indexPath.row].name
         return cell
     }

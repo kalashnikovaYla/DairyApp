@@ -23,8 +23,6 @@ final class AuthViewController: UIViewController {
         var error: NSError?
 
         
-        // Check if device is compatible with biometric authentication
-        
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
                // Use biometric authentication
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Unlock your diary using Face ID / Touch ID") { success, error in

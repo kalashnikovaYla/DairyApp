@@ -16,23 +16,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        
-        
         let mainTabBarController = MainTabBarController()
-        let bool = UserDefaults.standard.bool(forKey: "useBiometricAuthentication")
-        if bool {
-            let authVC = AuthViewController()
-            authVC.completion = { success in
+        
+       
+        let presentationWasViewed = UserDefaults.standard.bool(forKey: "presentationWasViewed")
+        
+        // First loading - show presentetion
+        
+        if !presentationWasViewed {
+            
+            let introVC = IntroViewController()
+            introVC.completion = { success in
                 if success {
                     self.window?.rootViewController = mainTabBarController
                 }
             }
-            window?.rootViewController = authVC
+            window?.rootViewController = introVC
+            
         } else {
-            window?.rootViewController = mainTabBarController
+            
+            // Next loading - MainTabBarController or authVC if needed
+            
+            let bool = UserDefaults.standard.bool(forKey: "useBiometricAuthentication")
+            
+            if bool {
+                print("2")
+                print(bool)
+                let authVC = AuthViewController()
+                authVC.completion = { success in
+                    if success {
+                        self.window?.rootViewController = mainTabBarController
+                    }
+                }
+                window?.rootViewController = authVC
+            } else {
+                window?.rootViewController = mainTabBarController
+            }
         }
         
-       
         window?.makeKeyAndVisible()
         window?.backgroundColor = .clear
     }
