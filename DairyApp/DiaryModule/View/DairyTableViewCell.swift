@@ -19,7 +19,7 @@ class DairyTableViewCell: UITableViewCell {
     let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 21, weight: .bold)
         return label
@@ -28,7 +28,7 @@ class DairyTableViewCell: UITableViewCell {
     let contentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .justified
@@ -38,7 +38,7 @@ class DairyTableViewCell: UITableViewCell {
     let smileLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         return label

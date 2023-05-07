@@ -11,7 +11,7 @@ final class DairyViewController: UIViewController {
 
     //MARK: - Property
     
-    var presenter: DairyPresenterProtocol!
+    var presenter: DiaryPresenterProtocol!
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +43,7 @@ final class DairyViewController: UIViewController {
     let label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.textAlignment = .left
         label.text = "Упс! Записи отсутствуют"
         label.font = UIFont.systemFont(ofSize: 18, weight: .heavy)

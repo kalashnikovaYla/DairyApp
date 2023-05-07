@@ -9,7 +9,7 @@ import UIKit
 
 final class SearchNoteViewController: UIViewController {
    
-    var presenter: DairyPresenterProtocol
+    var presenter: DiaryPresenterProtocol
     
     private var button: UIButton = {
         let button = UIButton()
@@ -24,7 +24,7 @@ final class SearchNoteViewController: UIViewController {
     
     //MARK: - Init
     
-    init(presenter: DairyPresenterProtocol) {
+    init(presenter: DiaryPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }

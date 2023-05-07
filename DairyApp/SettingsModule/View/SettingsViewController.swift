@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
 
-    let settings = ["Уведомления", "Безопасность", "О приложении"]
+    let settings = ["О приложении", "Безопасность", "Уведомления"]
     let identifier = "cell"
     
     private var tableView: UITableView = {
@@ -87,7 +87,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch indexPath.row {
         case 0:
-            print("")
+            
+           print("")
             
         case 1:
             let biometricVC = BiometricViewController()

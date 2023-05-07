@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DairyPresenterProtocol: AnyObject {
+protocol DiaryPresenterProtocol: AnyObject {
     var weekDays: [WeekDay] {get}
     var data: [NoteViewModel] {get}
     
@@ -21,7 +21,7 @@ protocol DairyViewProtocol: AnyObject {
     func dataIsNotExist() 
 }
 
-final class DairyPresenter: DairyPresenterProtocol, PresenterProtocol {
+final class DiaryPresenter: DiaryPresenterProtocol, PresenterProtocol {
     
     //MARK: - Properties
     
@@ -132,17 +132,17 @@ final class DairyPresenter: DairyPresenterProtocol, PresenterProtocol {
             
             switch index {
             case 0...4:
-                emoji = "😞"
+                emoji = "🤯"
             case 5...8:
-                emoji = "😔"
+                emoji = "😰"
             case 9...11:
                 emoji =  "😐"
             case 12...14:
-                emoji =  "🙂"
+                emoji =  "😇"
             case 15...18:
-                emoji =  "😊"
+                emoji =  "🎊"
             case 19...20:
-                emoji =  "😃"
+                emoji =  "🏆"
             default:
                 emoji = ""
             }

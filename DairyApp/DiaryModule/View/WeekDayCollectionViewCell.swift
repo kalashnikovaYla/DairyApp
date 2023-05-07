@@ -14,7 +14,7 @@ class WeekDayCollectionViewCell: UICollectionViewCell {
     let weekdayLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         return label
     }()
     

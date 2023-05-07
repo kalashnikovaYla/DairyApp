@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1686B5BC24EAAADFE863F133 /* Pods_DairyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A802883CA478AAADA88BA265 /* Pods_DairyAppTests.framework */; };
+		18187DEC2A07D74000DD8D6D /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18187DEB2A07D74000DD8D6D /* AboutAppViewController.swift */; };
 		18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */; };
 		182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */; };
 		182F339629F3EE3900F52EFE /* MoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */; };
@@ -18,7 +19,7 @@
 		18729E4129FD258B00887CEF /* TemporatyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18729E4029FD258B00887CEF /* TemporatyViewModel.swift */; };
 		187C4D7A29FC1996008CC423 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7929FC1996008CC423 /* CoreDataManager.swift */; };
 		187C4D7C29FC335A008CC423 /* ModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */; };
-		187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7E29FC356A008CC423 /* DairyPresenter.swift */; };
+		187C4D7F29FC356A008CC423 /* DiaryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D7E29FC356A008CC423 /* DiaryPresenter.swift */; };
 		187C4D8129FC38CD008CC423 /* NewNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */; };
 		187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */; };
 		187C4D8729FC45BE008CC423 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187C4D8629FC45BE008CC423 /* NoteViewModel.swift */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18187DEB2A07D74000DD8D6D /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		18209AB929F83093001D82A4 /* WeekDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayCollectionViewCell.swift; sourceTree = "<group>"; };
 		182F339329F3EC8900F52EFE /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
 		182F339529F3EE3900F52EFE /* MoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodTableViewCell.swift; sourceTree = "<group>"; };
@@ -76,7 +78,7 @@
 		18729E4029FD258B00887CEF /* TemporatyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporatyViewModel.swift; sourceTree = "<group>"; };
 		187C4D7929FC1996008CC423 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		187C4D7B29FC3359008CC423 /* ModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleBuilder.swift; sourceTree = "<group>"; };
-		187C4D7E29FC356A008CC423 /* DairyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyPresenter.swift; sourceTree = "<group>"; };
+		187C4D7E29FC356A008CC423 /* DiaryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryPresenter.swift; sourceTree = "<group>"; };
 		187C4D8029FC38CD008CC423 /* NewNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewNotePresenter.swift; sourceTree = "<group>"; };
 		187C4D8429FC3AA7008CC423 /* StatisticPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticPresenter.swift; sourceTree = "<group>"; };
 		187C4D8629FC45BE008CC423 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
@@ -165,7 +167,7 @@
 		187C4D7D29FC354E008CC423 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				187C4D7E29FC356A008CC423 /* DairyPresenter.swift */,
+				187C4D7E29FC356A008CC423 /* DiaryPresenter.swift */,
 				187C4D8629FC45BE008CC423 /* NoteViewModel.swift */,
 				187C4D8829FC5904008CC423 /* TagViewModel.swift */,
 			);
@@ -215,9 +217,9 @@
 			children = (
 				1888DF4E29F2FACA004ED046 /* Resources */,
 				1831D4E42A03FECE0042154B /* AuthModule */,
-				1888DF4F29F2FADD004ED046 /* MainTabBar */,
-				1888DF5229F2FB28004ED046 /* DairyModule */,
 				18FFB9C12A06CE260088C646 /* Onboarding */,
+				1888DF4F29F2FADD004ED046 /* MainTabBar */,
+				1888DF5229F2FB28004ED046 /* DiaryModule */,
 				1888DF5629F2FB80004ED046 /* NewNoteModule */,
 				1888DF5A29F2FBCC004ED046 /* StatisticModule */,
 				1888DF5E29F2FC59004ED046 /* SettingsModule */,
@@ -266,14 +268,14 @@
 			path = MainTabBar;
 			sourceTree = "<group>";
 		};
-		1888DF5229F2FB28004ED046 /* DairyModule */ = {
+		1888DF5229F2FB28004ED046 /* DiaryModule */ = {
 			isa = PBXGroup;
 			children = (
 				18AAC92D29F982A900F4D4D8 /* Model */,
 				187C4D7D29FC354E008CC423 /* Presenter */,
 				1888DF5329F2FB40004ED046 /* View */,
 			);
-			path = DairyModule;
+			path = DiaryModule;
 			sourceTree = "<group>";
 		};
 		1888DF5329F2FB40004ED046 /* View */ = {
@@ -341,6 +343,7 @@
 			children = (
 				1888DF6229F2FCA1004ED046 /* SettingsViewController.swift */,
 				1831D4E72A04095D0042154B /* BiometricViewController.swift */,
+				18187DEB2A07D74000DD8D6D /* AboutAppViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -641,12 +644,13 @@
 				18AAC93329F98C8900F4D4D8 /* EmojiEnum.swift in Sources */,
 				1888DF2629F2FA36004ED046 /* DairyApp.xcdatamodeld in Sources */,
 				1888DF5929F2FBB0004ED046 /* NewNoteViewController.swift in Sources */,
+				18187DEC2A07D74000DD8D6D /* AboutAppViewController.swift in Sources */,
 				182F339829F3FD0500F52EFE /* PhotoTableViewCell.swift in Sources */,
 				18D9CFD829F6CA150052321C /* TagTableViewCell.swift in Sources */,
 				1888DF6329F2FCA1004ED046 /* SettingsViewController.swift in Sources */,
 				18FFB9C32A06CED00088C646 /* IntroViewController.swift in Sources */,
 				18FFB9BF2A06C3790088C646 /* IntegerValueFormatter.swift in Sources */,
-				187C4D7F29FC356A008CC423 /* DairyPresenter.swift in Sources */,
+				187C4D7F29FC356A008CC423 /* DiaryPresenter.swift in Sources */,
 				182F339429F3EC8900F52EFE /* ContentTableViewCell.swift in Sources */,
 				18209ABA29F83093001D82A4 /* WeekDayCollectionViewCell.swift in Sources */,
 				187C4D8529FC3AA7008CC423 /* StatisticPresenter.swift in Sources */,
@@ -826,6 +830,7 @@
 				DEVELOPMENT_TEAM = MFZAMPHM55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DairyApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Diary;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешить приложению доступ к камере?";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Для авторизации в приложении используется сканирование лица";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Разрешить приложению доступ к галерее?";
@@ -857,6 +862,7 @@
 				DEVELOPMENT_TEAM = MFZAMPHM55;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DairyApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Diary;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Разрешить приложению доступ к камере?";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Для авторизации в приложении используется сканирование лица";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Разрешить приложению доступ к галерее?";

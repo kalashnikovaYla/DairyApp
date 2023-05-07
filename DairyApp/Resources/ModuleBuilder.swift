@@ -22,7 +22,7 @@ class ModuleBuilder: BuilderProtocol {
         let view = DairyViewController()
         let coreDataManager = CoreDataManager()
         let fileManager = FileManagerForImage()
-        let presenter = DairyPresenter(view: view,
+        let presenter = DiaryPresenter(view: view,
                                        coreDataManager: coreDataManager,
                                        fileManager: fileManager,
                                        dataObserver: dataObserver)

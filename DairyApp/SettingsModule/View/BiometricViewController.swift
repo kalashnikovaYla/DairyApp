@@ -18,7 +18,7 @@ final class BiometricViewController: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Использование Face ID"
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 21, weight: .medium)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ final class BiometricViewController: UIViewController {
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .label
+        label.textColor = UIColor(named: "textColor")
         label.numberOfLines = 0
         label.text = "Вы можете защитить ваш дневник от постронних лиц, добавив возможность входа в приложение через Face ID"
         label.textAlignment = .justified
@@ -41,7 +41,7 @@ final class BiometricViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         let image = UIImage(systemName: "shield.righthalf.filled")
-        imageView.tintColor = UIColor(named: "selected")
+        imageView.tintColor = UIColor(named: "onboardingButton")
         imageView.image = image
         return imageView
     }()
@@ -49,7 +49,7 @@ final class BiometricViewController: UIViewController {
     private var button: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = UIColor(named: "selected")
+        button.backgroundColor = UIColor(named: "onboardingButton")
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 20
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -70,7 +70,7 @@ final class BiometricViewController: UIViewController {
     //MARK: - Methods
     
     private func settingsSubviews() {
-        view.backgroundColor = UIColor(named: "background")
+        view.backgroundColor = UIColor(named: "smallBackground")
         
         button.addTarget(self, action: #selector(biometricBattonWasTapped), for: .touchUpInside)
         
