@@ -29,7 +29,7 @@ class DairyTableViewCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = UIColor(named: "textColor")
-        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .light)
         label.numberOfLines = 0
         label.textAlignment = .justified
         return label
